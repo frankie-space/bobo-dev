@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Log In</title>
+       <link rel="stylesheet" type="text/css" href="project-suli/style.css"/>
+    </head>
+    <body>
+        <div class="page-header"></div>    
+        <!--<div class="image"> <img src="intellectspace-logo.png" alt="logo" class="logo"></div>-->
+        <div class="container">
+            <form ng-submit="main.doLogin(loginData);" >
+                <h4>Log in</h4>
+                <p>Email (phone for mobile accounts)</p>
+                <div class="form-input">
+                    <input ng-disabled="main.disabled" type="text" name="expertemail" ng-model="main.loginData.email">
+                </div>
+                <p>Password<a href="/resetpassword"> Forgot password?</a></p>
+                <div class="form-input">
+                    <input type="password" ng-disabled="main.disabled" name = "pwd" ng-model="main.loginData.password"> 
+                </div>
+                <input type="submit" ng-disabled="main.disabled" name = "submit" value="Log In" class="btn-login"/>
+                <br><br>
+                <input type="checkbox" /> Keep me logged in.<a href="#"> Details</a>
+                <br>
+                <div class="dividerbreak"><h5>New to BoBo?</h5></div>
+                <a href="/register">Create your BoBo account</a>
+            </form><br>
+            <div class="row show-hide-message" ng-show="main.successMsg">
+             <div class="alert alert-success">{{main.successMsg}}</div>
+             </div>
+            <br>
+            <div class="row show-hide-message" ng-show="main.errorMsg">
+                <div class="alert alert-danger">{{main.errorMsg}}&nbsp<a ng-show="main.expired" href="/resend"><button type="button" class="btn btn-success">Resend Activation link</button></a></div>
+            </div>
+        </div>
+    </body>
+ </html>

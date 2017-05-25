@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>BoBo</title>
+   <!-- Cascade Style Sheets-->
+   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    
+    <!--Main Angular files-->
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+
+    <!--Angular Config/Routes-->
+    <script src="app/app.js"></script>  
+    <script src="app/routes.js"></script>
+
+    <!--Angular Controllers-->
+    <script src="app/controllers/usrCtrl.js"></script>  
+    <script src="app/controllers/mainCtrl.js"></script> 
+     <script src="app/controllers/emailCtrl.js"></script>
+
+    <!--Angular Services-->  
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+    
+  </head>
+
+  <body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+
+ <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">        
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/login" ng-show="!main.isLoggedIn" >Login</a></li>
+            <li><a href="/register" ng-show="!main.isLoggedIn">Join World's Experts</a></li>
+            <li><a href="#" ng-show="main.isLoggedIn" ng-click="main.logout();"> Logout</a></li>
+             <li><a href="/eep" ng-show="main.isLoggedIn" > Hello {{main.firstname}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container theme-showcase" role="main">
+      <div ng-view></div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.js"></script>  
+  </body>
+</html>

@@ -1,0 +1,30 @@
+        <div class="page-header"></div>    
+        <h3>Resend Activation Link</h3>
+        <div class="container">
+            <form ng-submit="resend.checkCredentials(loginData);" >
+                <h4>Log in</h4>
+                <p>Email (phone for mobile accounts)</p>
+                <div class="form-input">
+                    <input type="text" name="expertemail" ng-model="resend.loginData.email">
+                </div>
+                <p>Password<a href="/resetpassword"> Forgot password?</a></p>
+                <div class="form-input">
+                    <input type="password" name = "pwd" ng-model="resend.loginData.password"> 
+                </div>
+                <input type="submit" name = "submit" value="Log In" class="btn-login"/>
+                <br><br>
+                <input type="checkbox"/> Keep me logged in.<a href="#"> Details</a>
+                <br>
+                <div class="dividerbreak"><h5>New to BoBo?</h5></div>
+                <a href="/register">Create your BoBo account</a>
+            </form><br>
+            <div class="row show-hide-message" ng-show="resend.successMsg">
+             <div class="alert alert-success">{{resend.successMsg}}</div>
+             </div>
+            <br>
+            <div class="row show-hide-message" ng-show="resend.errorMsg">
+                <div class="alert alert-danger">{{resend.errorMsg}}</div>
+            </div>
+        </div>
+    </body>
+ </html>

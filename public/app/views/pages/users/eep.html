@@ -1,0 +1,1345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>edit-expert-profile</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<style type="text/css">
+.style1 {
+	text-align: center;
+}
+.style2 {
+	text-align: left;
+}
+.style3 {
+	text-decoration: underline;
+}
+label:after{
+    content: " *";
+    color: red;
+    font-weight: bold;
+}
+label.optional:after{
+    content: "";
+}
+</style>
+</head>
+
+<body>
+	<div class="page-header"></div>
+<h2 class="style1"><strong>Create/Edit Your Profile</strong></h2>
+<form name="eep">
+	<h3 class="style1">Header Section:</h3>
+	<br/>
+
+<label class="optional">Your title:</label>
+<br />
+<select name="eep_title1" style="width: 200px">
+<option value="1"></option>
+	<option value="2">Dr.</option>
+	<option value="3">Prof.</option>
+	<option value="4">Gen.</option>
+	<option value="5">Adm.</option>
+	<option value="6">Rear Adm.</option>
+	<option value="7">Hon.</option>
+	<option value="8">Rt.Hon.</option>
+</select> <em>&nbsp;(Optional)&nbsp; [EEP-2]</em>
+<br /><br />	
+<div ng-class="{ 'has-success':(eep.firstname.$valid && !eep.firstname.$pristine), 'has-error':(!eep.firstname.$valid && !eep.firstname.$pristine)|| (!eep.firstname.$valid && eep.$submitted)}">
+<label>First Name:</label>
+	<br />
+<input name="eep_first_name" value="{{main.firstname}}" type="text" style="width: 300px" required>&nbsp; <em>[EEP-3]</em><br />
+<p class="help-block" ng-show="(!eep.eep_first_name.$pristine && eep.eep_first_name.$error.required)||(eep.$submitted && eep.eep_first_name.$error.required)">This field is required</p>
+</div><br />
+<label class="optional">Nick Name: <br></label><br>
+<input name="eep_nick_name" type="text" style="width: 300px" />&nbsp; <em>
+	(Optional)&nbsp; [EEP-4]</em><br />
+<br />
+<label class="optional"> Initial or Middle Name:</label>
+<br />
+<input name="eep_middle_name" type="text" style="width: 300px" />&nbsp; <em>
+	(Optional) [EEP-5]</em><br />
+<br />
+<label>Last Name:</label>
+<br />
+<input name="eep_last_name" value="{{main.lastname}}" type="text" style="width: 300px" />&nbsp; <em>[EEP-6]</em><br />
+<br />
+	<label class="optional">Degree/Certification separated by 
+	the forward slash (/) to be searchable. <em>For example Ph.D/MBA/JD/CPA </em></label>
+<br />
+<input name="eep_education_certification_abbr" type="text" style="width: 635px" /> 
+	<em>&nbsp;(Optional) [EEP-7]</em><br />
+	<br />
+<label>Select your Country:</label><br>
+<select name="eep_expert_country_location" style="width: 300px">
+	<option value="1">Afghanistan</option>
+	<option value="2">Albania</option>
+	<option value="3">Algeria</option>
+	<option value="4">American Samoa</option>
+	<option value="5">Andorra</option>
+	<option value="6">Angola</option>
+	<option value="7">Anguilla</option>
+	<option value="8">Antarctica</option>
+	<option value="9">Antigua and Barbuda</option>
+	<option value="10">Argentina</option>
+	<option value="11">Armenia</option>
+	<option value="12">Aruba</option>
+	<option value="13">Australia</option>
+	<option value="14">Austria</option>
+	<option value="15">Azerbaijan</option>
+	<option value="16">Bahamas</option>
+	<option value="17">Bahrain</option>
+	<option value="18">Bangladesh</option>
+	<option value="19">Barbados</option>
+	<option value="20">Belarus</option>
+	<option value="21">Belgium</option>
+	<option value="22">Belize</option>
+	<option value="23">Benin</option>
+	<option value="24">Bermuda</option>
+	<option value="25">Bhutan</option>
+	<option value="26">Bolivia</option>
+	<option value="27">Bosnia and Herzegovina</option>
+	<option value="28">Botswana</option>
+	<option value="29">Brazil</option>
+	<option value="30">Brunei Darussalam</option>
+	<option value="31">Bulgaria</option>
+	<option value="32">Burkina Faso</option>
+	<option value="33">Burundi</option>
+	<option value="34">Cambodia</option>
+	<option value="35">Cameroon</option>
+	<option value="36">Canada</option>
+	<option value="37">Cape Verde</option>
+	<option value="38">Cayman Islands</option>
+	<option value="39">Central African Republic</option>
+	<option value="40">Chad</option>
+	<option value="41">Chile</option>
+	<option value="42">China</option>
+	<option value="43">Christmas Island</option>
+	<option value="44">Cocos (Keeling) Islands</option>
+	<option value="45">Colombia</option>
+	<option value="46">Comoros</option>
+	<option value="47">Congo, Republic of(Brazzaville)</option>
+	<option value="48">Cook Islands</option>
+	<option value="49">Costa Rica</option>
+	<option value="50">Croatia</option>
+	<option value="51">Cuba</option>
+	<option value="52">Cyprus</option>
+	<option value="53">Czech Republic</option>
+	<option value="54">Democratic Republic of the Congo (Kinshasa)</option>
+	<option value="55">Denmark</option>
+	<option value="56">Djibouti</option>
+	<option value="57">Dominica</option>
+	<option value="58">Dominican Republic</option>
+	<option value="59">East Timor (Timor-Leste)</option>
+	<option value="60">Ecuador</option>
+	<option value="61">Egypt</option>
+	<option value="62">El Salvador</option>
+	<option value="63">Equatorial Guinea</option>
+	<option value="64">Eritrea</option>
+	<option value="65">Estonia</option>
+	<option value="66">Ethiopia</option>
+	<option value="67">Falkland Islands</option>
+	<option value="68">Faroe Islands</option>
+	<option value="69">Fiji</option>
+	<option value="70">Finland</option>
+	<option value="71">France</option>
+	<option value="72">French Guiana</option>
+	<option value="73">French Polynesia</option>
+	<option value="74">French Southern Territories</option>
+	<option value="75">Gabon</option>
+	<option value="76">Gambia</option>
+	<option value="77">Georgia</option>
+	<option value="78">Germany</option>
+	<option value="79">Ghana</option>
+	<option value="80">Gibraltar</option>
+	<option value="81">Great Britain</option>
+	<option value="82">Greece</option>
+	<option value="83">Greenland</option>
+	<option value="84">Grenada</option>
+	<option value="85">Guadeloupe</option>
+	<option value="86">Guam</option>
+	<option value="87">Guatemala</option>
+	<option value="88">Guinea</option>
+	<option value="89">Guinea-Bissau</option>
+	<option value="90">Guyana</option>
+	<option value="91">Haiti</option>
+	<option value="92">Holy See</option>
+	<option value="93">Honduras</option>
+	<option value="94">Hong Kong</option>
+	<option value="95">Hungary</option>
+	<option value="96">Iceland</option>
+	<option value="97">India</option>
+	<option value="98">Indonesia</option>
+	<option value="99">Iran (Islamic Republic of)</option>
+	<option value="100">Iraq</option>
+	<option value="101">Ireland</option>
+	<option value="102">Israel</option>
+	<option value="103">Italy</option>
+	<option value="104">Ivory Coast</option>
+	<option value="105">Jamaica</option>
+	<option value="106">Japan</option>
+	<option value="107">Jordan</option>
+	<option value="108">Kazakhstan</option>
+	<option value="109">Kenya</option>
+	<option value="110">Kiribati</option>
+	<option value="111">Korea, Democratic People's Rep. (North Korea)</option>
+	<option value="112">Korea, Republic of (South Korea)</option>
+	<option value="113">Kosovo</option>
+	<option value="114">Kuwait</option>
+	<option value="115">Kyrgyzstan</option>
+	<option value="116">Lao, People's Democratic Republic</option>
+	<option value="117">Latvia</option>
+	<option value="118">Lebanon</option>
+	<option value="119">Lesotho</option>
+	<option value="120">Liberia</option>
+	<option value="121">Libya</option>
+	<option value="122">Liechtenstein</option>
+	<option value="123">Lithuania</option>
+	<option value="124">Luxembourg</option>
+	<option value="125">Macau</option>
+	<option value="126">Macedonia, Rep. of</option>
+	<option value="127">Madagascar</option>
+	<option value="128">Malawi</option>
+	<option value="129">Malaysia</option>
+	<option value="130">Maldives</option>
+	<option value="131">Mali</option>
+	<option value="132">Malta</option>
+	<option value="133">Marshall Islands</option>
+	<option value="134">Martinique</option>
+	<option value="135">Mauritania</option>
+	<option value="136">Mauritius</option>
+	<option value="137">Mayotte</option>
+	<option value="138">Mexico</option>
+	<option value="139">Micronesia, Federal States of</option>
+	<option value="140">Moldova, Republic of</option>
+	<option value="141">Monaco</option>
+	<option value="142">Mongolia</option>
+	<option value="143">Montenegro</option>
+	<option value="144">Montserrat</option>
+	<option value="145">Morocco</option>
+	<option value="146">Mozambique</option>
+	<option value="147">Myanmar, Burma</option>
+	<option value="148">Namibia</option>
+	<option value="149">Nauru</option>
+	<option value="150">Nepal</option>
+	<option value="151">Netherlands</option>
+	<option value="152">Netherlands Antilles</option>
+	<option value="153">New Caledonia</option>
+	<option value="154">New Zealand</option>
+	<option value="155">Nicaragua</option>
+	<option value="156">Niger</option>
+	<option value="157">Nigeria</option>
+	<option value="158">Niue</option>
+	<option value="159">Northern Mariana Islands</option>
+	<option value="160">Norway</option>
+	<option value="161">Oman</option>
+	<option value="162">Pakistan</option>
+	<option value="163">Palau</option>
+	<option value="164">Palestinian territories</option>
+	<option value="165">Panama</option>
+	<option value="166">Papua New Guinea</option>
+	<option value="167">Paraguay</option>
+	<option value="168">Peru</option>
+	<option value="169">Philippines</option>
+	<option value="170">Pitcairn Island</option>
+	<option value="171">Poland</option>
+	<option value="172">Portugal</option>
+	<option value="173">Puerto Rico</option>
+	<option value="174">Qatar</option>
+	<option value="175">Reunion Island</option>
+	<option value="176">Romania</option>
+	<option value="177">Russian Federation</option>
+	<option value="178">Rwanda</option>
+	<option value="179">Saint Kitts and Nevis</option>
+	<option value="180">Saint Lucia</option>
+	<option value="181">Saint Vincent and the Grenadines</option>
+	<option value="182">Samoa</option>
+	<option value="183">San Marino</option>
+	<option value="184">Sao Tome and Principe</option>
+	<option value="185">Saudi Arabia</option>
+	<option value="186">Senegal</option>
+	<option value="187">Serbia</option>
+	<option value="188">Seychelles</option>
+	<option value="189">Sierra Leone</option>
+	<option value="190">Singapore</option>
+	<option value="191">Slovakia (Slovak Republic)</option>
+	<option value="192">Slovenia</option>
+	<option value="193">Solomon Islands</option>
+	<option value="194">Somalia</option>
+	<option value="195">South Africa</option>
+	<option value="196">South Sudan</option>
+	<option value="197">Spain</option>
+	<option value="198">Sri Lanka</option>
+	<option value="199">Sudan</option>
+	<option value="200">Suriname</option>
+	<option value="201">Swaziland</option>
+	<option value="202">Sweden</option>
+	<option value="203">Switzerland</option>
+	<option value="204">Syria, Syrian Arab Republic</option>
+	<option value="205">Taiwan (Republic of China)</option>
+	<option value="206">Tajikistan</option>
+	<option value="207">Tanzania; officially the United Republic of Tanzania</option>
+	<option value="208">Thailand</option>
+	<option value="209">Tibet</option>
+	<option value="210">Timor-Leste (East Timor)</option>
+	<option value="211">Togo</option>
+	<option value="212">Tokelau</option>
+	<option value="213">Tonga</option>
+	<option value="214">Trinidad and Tobago</option>
+	<option value="215">Tunisia</option>
+	<option value="216">Turkey</option>
+	<option value="217">Turkmenistan</option>
+	<option value="218">Turks and Caicos Islands</option>
+	<option value="219">Tuvalu</option>
+	<option value="220">Ugandax</option>
+	<option value="221">Ukraine</option>
+	<option value="222">United Arab Emirates</option>
+	<option value="223">United Kingdom</option>
+	<option value="224">United States</option>
+	<option value="225">Uruguay</option>
+	<option value="226">Uzbekistan</option>
+	<option value="227">Vanuatu</option>
+	<option value="228">Vatican City State (Holy See)</option>
+	<option value="229">Venezuela</option>
+	<option value="230">Vietnam</option>
+	<option value="231">Virgin Islands (British)</option>
+	<option value="232">Virgin Islands (U.S.)</option>
+	<option value="233">Wallis and Futuna Islands</option>
+	<option value="234">Western Sahara</option>
+	<option value="235">Yemen</option>
+	<option value="236">Zambia</option>
+	<option value="237">Zimbabwe</option>
+
+
+	</select>&nbsp; <em>[EEP- 8]</em><br />
+	<br />
+	<label class="optional" >Select your State or Province <em>(for US and Canada ONLY)</em>:</label><br>
+<select name="eep_expert_state_location" style="width: 300px">
+	<option value="1"></option>
+	<option value="2">Alabama</option>
+	<option value="3"> Alaska</option>
+	<option value="4"> Arizona</option>
+	<option value="5"> Arkansas</option>
+	<option value="6"> California</option>
+	<option value="7"> Colorado</option>
+	<option value="8"> Connecticut</option>
+	<option value="9"> Delaware</option>
+	<option value="10"> Florida</option>
+	<option value="11"> Georgia</option>
+	<option value="12"> Hawaii</option>
+	<option value="13"> Idaho</option>
+	<option value="14"> Illinois</option>
+	<option value="15"> Indiana</option>
+	<option value="16"> Iowa</option>
+	<option value="17"> Kansas</option>
+	<option value="18"> Kentucky</option>
+	<option value="19"> Louisiana</option>
+	<option value="20"> Maine</option>
+	<option value="21"> Maryland</option>
+	<option value="22"> Massachusetts</option>
+	<option value="23"> Michigan</option>
+	<option value="24"> Minnesota</option>
+	<option value="25"> Mississippi</option>
+	<option value="26"> Missouri</option>
+	<option value="27"> Montana</option>
+	<option value="28"> Nebraska</option>
+	<option value="29"> Nevada</option>
+	<option value="30"> New Hampshire</option>
+	<option value="31"> New Jersey</option>
+	<option value="32"> New Mexico</option>
+	<option value="33"> New York</option>
+	<option value="34"> North Carolina</option>
+	<option value="35">  North Dakota</option>
+	<option value="36"> Ohio</option>
+	<option value="37"> Oklahoma</option>
+	<option value="38"> Oregon</option>
+	<option value="39"> Pennsylvania</option>
+	<option value="40"> Rhode Island</option>
+	<option value="41"> South Carolina</option>
+	<option value="42"> South Dakota</option>
+	<option value="43"> Tennessee</option>
+	<option value="44"> Texas</option>
+	<option value="45"> Utah</option>
+	<option value="46"> Vermont</option>
+	<option value="47"> Virginia</option>
+	<option value="48"> Washington</option>
+	<option value="49"> West Virginia</option>
+	<option value="50"> Wisconsin</option>
+	<option value="51"> Wyoming</option>
+	<option value="52"> District of Columbia</option>
+	<option value="53"> American Samoa</option>
+	<option value="54"> Guam</option>
+	<option value="55"> Northern Mariana Islands</option>
+	<option value="56"> Puerto Rico</option>
+	<option value="57"> U.S. Virgin Islands</option>
+	<option value="58"> Ontario</option>
+	<option value="59"> Quebec</option>
+	<option value="60"> British Columbia</option>
+	<option value="61"> Alberta</option>
+	<option value="62"> Manitoba</option>
+	<option value="63"> Saskatchewan</option>
+	<option value="64"> Nova Scotia</option>
+	<option value="65"> New Brunswick</option>
+	<option value="66"> Newfoundland and Labrador</option>
+	<option value="67"> Prince Edward Island</option>
+	<option value="68"> Northwest Territories</option>
+	<option value="69"> Yukon</option>
+	<option value="70"> Nunavut</option>
+
+			</select>&nbsp; <em>[EEP- 9]<br />
+	<br />
+	<label class="optional"</em>City of your location:</label>
+<br />
+<input name="eep_company_city0" type="text" style="width: 300px" />&nbsp; 
+	<em>[EEP- 10]</em><br />
+	<br />
+
+	<label>Select your metropolitan area</label><br>
+<select name="eep_expert_state_location0" style="width: 300px">
+	<option value="1"></option>
+	<option value="2">area1</option>
+	<option value="3">area2</option>
+	<option value="4">area3</option>
+	<option value="5">area4</option>
+	
+
+			</select>&nbsp; <em>[EEP-11]</em>&nbsp;<br />
+	<br />
+	</em>
+	<label><span class="style3">Upload your picture:</label>&nbsp;&nbsp; {Link to computer HD to select picture} 
+	</span> <em>
+	[EEP-12]</em><br /><br />
+	<img src="" height="79" width="170" />&nbsp; [EEP-14]</em>  
+	<br />
+	<em>
+	<br />
+
+<input name="eep_submit_name_section" type="submit" value="Add Info above to Profile" style="width: 300px" />&nbsp;&nbsp; 
+	<em>[EEP-13]</em>&nbsp; 
+<a href="expert-profile.html" target="blank">Click here to preview</a>&nbsp;&nbsp; 
+	<em>[EEP-14] </em>
+
+<br />
+<br />
+	<h3 class="style1">Employment and Memberships Section of Expert's Profile:
+</h3>
+	<strong><em>Lets start with your current or most recent employment or 
+	membership:
+</em></strong>
+<br />
+<br />
+<label>	Select your 
+	company/organization/institution headquarters.</label><br>
+	I<em>f you can not see your company headquarters - </em>T<em>ype your company name and mark the box &quot;Add New 
+	Company&quot;:</em><br />
+<input name="eep_company_name" type="text" style="width: 500px" />&nbsp; <em>
+	[EEP- 15] </em>&nbsp; 
+	<input type="checkbox" name="eep_add_new_company1" value="1"/>Adding New Company
+	&nbsp;
+	<em>[EEP- ]</em><br/>
+	<br />
+	<label>Select Country from Drop-Down list:</label><br />
+<select name="eep_expert_country_location1" style="width: 300px">
+	<option value="1">Afghanistan</option>
+	<option value="2">Albania</option>
+	<option value="3">Algeria</option>
+	<option value="4">American Samoa</option>
+	<option value="5">Andorra</option>
+	<option value="6">Angola</option>
+	<option value="7">Anguilla</option>
+	<option value="8">Antarctica</option>
+	<option value="9">Antigua and Barbuda</option>
+	<option value="10">Argentina</option>
+	<option value="11">Armenia</option>
+	<option value="12">Aruba</option>
+	<option value="13">Australia</option>
+	<option value="14">Austria</option>
+	<option value="15">Azerbaijan</option>
+	<option value="16">Bahamas</option>
+	<option value="17">Bahrain</option>
+	<option value="18">Bangladesh</option>
+	<option value="19">Barbados</option>
+	<option value="20">Belarus</option>
+	<option value="21">Belgium</option>
+	<option value="22">Belize</option>
+	<option value="23">Benin</option>
+	<option value="24">Bermuda</option>
+	<option value="25">Bhutan</option>
+	<option value="26">Bolivia</option>
+	<option value="27">Bosnia and Herzegovina</option>
+	<option value="28">Botswana</option>
+	<option value="29">Brazil</option>
+	<option value="30">Brunei Darussalam</option>
+	<option value="31">Bulgaria</option>
+	<option value="32">Burkina Faso</option>
+	<option value="33">Burundi</option>
+	<option value="34">Cambodia</option>
+	<option value="35">Cameroon</option>
+	<option value="36">Canada</option>
+	<option value="37">Cape Verde</option>
+	<option value="38">Cayman Islands</option>
+	<option value="39">Central African Republic</option>
+	<option value="40">Chad</option>
+	<option value="41">Chile</option>
+	<option value="42">China</option>
+	<option value="43">Christmas Island</option>
+	<option value="44">Cocos (Keeling) Islands</option>
+	<option value="45">Colombia</option>
+	<option value="46">Comoros</option>
+	<option value="47">Congo, Republic of(Brazzaville)</option>
+	<option value="48">Cook Islands</option>
+	<option value="49">Costa Rica</option>
+	<option value="50">Croatia</option>
+	<option value="51">Cuba</option>
+	<option value="52">Cyprus</option>
+	<option value="53">Czech Republic</option>
+	<option value="54">Democratic Republic of the Congo (Kinshasa)</option>
+	<option value="55">Denmark</option>
+	<option value="56">Djibouti</option>
+	<option value="57">Dominica</option>
+	<option value="58">Dominican Republic</option>
+	<option value="59">East Timor (Timor-Leste)</option>
+	<option value="60">Ecuador</option>
+	<option value="61">Egypt</option>
+	<option value="62">El Salvador</option>
+	<option value="63">Equatorial Guinea</option>
+	<option value="64">Eritrea</option>
+	<option value="65">Estonia</option>
+	<option value="66">Ethiopia</option>
+	<option value="67">Falkland Islands</option>
+	<option value="68">Faroe Islands</option>
+	<option value="69">Fiji</option>
+	<option value="70">Finland</option>
+	<option value="71">France</option>
+	<option value="72">French Guiana</option>
+	<option value="73">French Polynesia</option>
+	<option value="74">French Southern Territories</option>
+	<option value="75">Gabon</option>
+	<option value="76">Gambia</option>
+	<option value="77">Georgia</option>
+	<option value="78">Germany</option>
+	<option value="79">Ghana</option>
+	<option value="80">Gibraltar</option>
+	<option value="81">Great Britain</option>
+	<option value="82">Greece</option>
+	<option value="83">Greenland</option>
+	<option value="84">Grenada</option>
+	<option value="85">Guadeloupe</option>
+	<option value="86">Guam</option>
+	<option value="87">Guatemala</option>
+	<option value="88">Guinea</option>
+	<option value="89">Guinea-Bissau</option>
+	<option value="90">Guyana</option>
+	<option value="91">Haiti</option>
+	<option value="92">Holy See</option>
+	<option value="93">Honduras</option>
+	<option value="94">Hong Kong</option>
+	<option value="95">Hungary</option>
+	<option value="96">Iceland</option>
+	<option value="97">India</option>
+	<option value="98">Indonesia</option>
+	<option value="99">Iran (Islamic Republic of)</option>
+	<option value="100">Iraq</option>
+	<option value="101">Ireland</option>
+	<option value="102">Israel</option>
+	<option value="103">Italy</option>
+	<option value="104">Ivory Coast</option>
+	<option value="105">Jamaica</option>
+	<option value="106">Japan</option>
+	<option value="107">Jordan</option>
+	<option value="108">Kazakhstan</option>
+	<option value="109">Kenya</option>
+	<option value="110">Kiribati</option>
+	<option value="111">Korea, Democratic People's Rep. (North Korea)</option>
+	<option value="112">Korea, Republic of (South Korea)</option>
+	<option value="113">Kosovo</option>
+	<option value="114">Kuwait</option>
+	<option value="115">Kyrgyzstan</option>
+	<option value="116">Lao, People's Democratic Republic</option>
+	<option value="117">Latvia</option>
+	<option value="118">Lebanon</option>
+	<option value="119">Lesotho</option>
+	<option value="120">Liberia</option>
+	<option value="121">Libya</option>
+	<option value="122">Liechtenstein</option>
+	<option value="123">Lithuania</option>
+	<option value="124">Luxembourg</option>
+	<option value="125">Macau</option>
+	<option value="126">Macedonia, Rep. of</option>
+	<option value="127">Madagascar</option>
+	<option value="128">Malawi</option>
+	<option value="129">Malaysia</option>
+	<option value="130">Maldives</option>
+	<option value="131">Mali</option>
+	<option value="132">Malta</option>
+	<option value="133">Marshall Islands</option>
+	<option value="134">Martinique</option>
+	<option value="135">Mauritania</option>
+	<option value="136">Mauritius</option>
+	<option value="137">Mayotte</option>
+	<option value="138">Mexico</option>
+	<option value="139">Micronesia, Federal States of</option>
+	<option value="140">Moldova, Republic of</option>
+	<option value="141">Monaco</option>
+	<option value="142">Mongolia</option>
+	<option value="143">Montenegro</option>
+	<option value="144">Montserrat</option>
+	<option value="145">Morocco</option>
+	<option value="146">Mozambique</option>
+	<option value="147">Myanmar, Burma</option>
+	<option value="148">Namibia</option>
+	<option value="149">Nauru</option>
+	<option value="150">Nepal</option>
+	<option value="151">Netherlands</option>
+	<option value="152">Netherlands Antilles</option>
+	<option value="153">New Caledonia</option>
+	<option value="154">New Zealand</option>
+	<option value="155">Nicaragua</option>
+	<option value="156">Niger</option>
+	<option value="157">Nigeria</option>
+	<option value="158">Niue</option>
+	<option value="159">Northern Mariana Islands</option>
+	<option value="160">Norway</option>
+	<option value="161">Oman</option>
+	<option value="162">Pakistan</option>
+	<option value="163">Palau</option>
+	<option value="164">Palestinian territories</option>
+	<option value="165">Panama</option>
+	<option value="166">Papua New Guinea</option>
+	<option value="167">Paraguay</option>
+	<option value="168">Peru</option>
+	<option value="169">Philippines</option>
+	<option value="170">Pitcairn Island</option>
+	<option value="171">Poland</option>
+	<option value="172">Portugal</option>
+	<option value="173">Puerto Rico</option>
+	<option value="174">Qatar</option>
+	<option value="175">Reunion Island</option>
+	<option value="176">Romania</option>
+	<option value="177">Russian Federation</option>
+	<option value="178">Rwanda</option>
+	<option value="179">Saint Kitts and Nevis</option>
+	<option value="180">Saint Lucia</option>
+	<option value="181">Saint Vincent and the Grenadines</option>
+	<option value="182">Samoa</option>
+	<option value="183">San Marino</option>
+	<option value="184">Sao Tome and Principe</option>
+	<option value="185">Saudi Arabia</option>
+	<option value="186">Senegal</option>
+	<option value="187">Serbia</option>
+	<option value="188">Seychelles</option>
+	<option value="189">Sierra Leone</option>
+	<option value="190">Singapore</option>
+	<option value="191">Slovakia (Slovak Republic)</option>
+	<option value="192">Slovenia</option>
+	<option value="193">Solomon Islands</option>
+	<option value="194">Somalia</option>
+	<option value="195">South Africa</option>
+	<option value="196">South Sudan</option>
+	<option value="197">Spain</option>
+	<option value="198">Sri Lanka</option>
+	<option value="199">Sudan</option>
+	<option value="200">Suriname</option>
+	<option value="201">Swaziland</option>
+	<option value="202">Sweden</option>
+	<option value="203">Switzerland</option>
+	<option value="204">Syria, Syrian Arab Republic</option>
+	<option value="205">Taiwan (Republic of China)</option>
+	<option value="206">Tajikistan</option>
+	<option value="207">Tanzania; officially the United Republic of Tanzania</option>
+	<option value="208">Thailand</option>
+	<option value="209">Tibet</option>
+	<option value="210">Timor-Leste (East Timor)</option>
+	<option value="211">Togo</option>
+	<option value="212">Tokelau</option>
+	<option value="213">Tonga</option>
+	<option value="214">Trinidad and Tobago</option>
+	<option value="215">Tunisia</option>
+	<option value="216">Turkey</option>
+	<option value="217">Turkmenistan</option>
+	<option value="218">Turks and Caicos Islands</option>
+	<option value="219">Tuvalu</option>
+	<option value="220">Ugandax</option>
+	<option value="221">Ukraine</option>
+	<option value="222">United Arab Emirates</option>
+	<option value="223">United Kingdom</option>
+	<option value="224">United States</option>
+	<option value="225">Uruguay</option>
+	<option value="226">Uzbekistan</option>
+	<option value="227">Vanuatu</option>
+	<option value="228">Vatican City State (Holy See)</option>
+	<option value="229">Venezuela</option>
+	<option value="230">Vietnam</option>
+	<option value="231">Virgin Islands (British)</option>
+	<option value="232">Virgin Islands (U.S.)</option>
+	<option value="233">Wallis and Futuna Islands</option>
+	<option value="234">Western Sahara</option>
+	<option value="235">Yemen</option>
+	<option value="236">Zambia</option>
+	<option value="237">Zimbabwe</option>
+
+
+	</select>
+
+
+	<em>[EEP- ]</em><br />
+	<br />
+
+<label>City of your office location:</label>
+<br />
+<input name="eep_company_city1" type="text" style="width: 300px" />&nbsp; <em>
+	[EEP- ]</em><br />
+	<br />
+	<label> Select State or Province <em>(for US and Canada ONLY) </em></label>
+<br />
+<select name="eep_state_province1" style="width: 300px">
+	<option value="1">Alabama</option>
+	<option value="2"> Alaska</option>
+	<option value="3"> Arizona</option>
+	<option value="4"> Arkansas</option>
+	<option value="5"> California</option>
+	<option value="6"> Colorado</option>
+	<option value="7"> Connecticut</option>
+	<option value="8"> Delaware</option>
+	<option value="9"> Florida</option>
+	<option value="10"> Georgia</option>
+	<option value="11"> Hawaii</option>
+	<option value="12"> Idaho</option>
+	<option value="13"> Illinois</option>
+	<option value="14"> Indiana</option>
+	<option value="15"> Iowa</option>
+	<option value="16"> Kansas</option>
+	<option value="17"> Kentucky</option>
+	<option value="18"> Louisiana</option>
+	<option value="19"> Maine</option>
+	<option value="20"> Maryland</option>
+	<option value="21"> Massachusetts</option>
+	<option value="22"> Michigan</option>
+	<option value="23"> Minnesota</option>
+	<option value="24"> Mississippi</option>
+	<option value="25"> Missouri</option>
+	<option value="26"> Montana</option>
+	<option value="27"> Nebraska</option>
+	<option value="28"> Nevada</option>
+	<option value="29"> New Hampshire</option>
+	<option value="30"> New Jersey</option>
+	<option value="31"> New Mexico</option>
+	<option value="32"> New York</option>
+	<option value="33"> North Carolina</option>
+	<option value="34"> North Dakota</option>
+	<option value="35"> Ohio</option>
+	<option value="36"> Oklahoma</option>
+	<option value="37"> Oregon</option>
+	<option value="38"> Pennsylvania</option>
+	<option value="39"> Rhode Island</option>
+	<option value="40"> South Carolina</option>
+	<option value="41"> South Dakota</option>
+	<option value="42"> Tennessee</option>
+	<option value="43"> Texas</option>
+	<option value="44"> Utah</option>
+	<option value="45"> Vermont</option>
+	<option value="46"> Virginia</option>
+	<option value="47"> Washington</option>
+	<option value="48"> West Virginia</option>
+	<option value="49"> Wisconsin</option>
+	<option value="50"> Wyoming</option>
+	<option value="51"> District of Columbia</option>
+	<option value="52"> American Samoa</option>
+	<option value="53"> Guam</option>
+	<option value="54"> Northern Mariana Islands</option>
+	<option value="55"> Puerto Rico</option>
+	<option value="56"> U.S. Virgin Islands</option>
+	<option value="57"> Ontario</option>
+	<option value="58"> Quebec</option>
+	<option value="59"> British Columbia</option>
+	<option value="60"> Alberta</option>
+	<option value="61"> Manitoba</option>
+	<option value="62"> Saskatchewan</option>
+	<option value="63"> Nova Scotia</option>
+	<option value="64"> New Brunswick</option>
+	<option value="65"> Newfoundland and Labrador</option>
+	<option value="66"> Prince Edward Island</option>
+	<option value="67"> Northwest Territories</option>
+	<option value="68"> Yukon</option>
+	<option value="69"> Nunavut</option>
+
+			</select>&nbsp; <em>[EEP- ]<br />
+	<br />
+	
+<label class="optional"><input type="checkbox" name="eep_employment_present1" value="1"/> Present&nbsp;
+	[EEP- ]&nbsp; 	
+	Mark the box &quot;Present&quot; if your relationship with this company is Current</label><br />
+	</em><br />
+	
+	<label>Select your Title Category:</label><br />
+<select name="eep_title_category1" style="width: 300px">
+	<option value="1"></option>
+	<option value="2">VP-Executive Level</option>
+	<option value="3">Manager-Mid Level</option>
+	<option value="3">Manager-Entry Level</option>
+	<option value="4">Professional</option>
+	<option value="5">Partner</option>
+	<option value="6">Consultant</option>
+	<option value="7">Advisor</option>
+	<option value="8">Member of the Board</option>
+	<option value="9">Administrator</option>
+	<option value="10">Clerk</option>
+	<option value="11">Trustee</option>
+	<option value="12">C-Level Executive</option>
+	<option value="13"></option>
+	<option value="14">Other</option>
+
+
+
+
+			</select>&nbsp; <em>[EEP-]<br />
+	</em>
+	<br />
+	<label class="optional">Your e</label><span style="color: rgb(0, 0, 0); font-family: 'Times New Roman'; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;"><label class="optional">xact
+	title(s) separated by the forward slash (/).</label><span class="Apple-converted-space">&nbsp;</span></span><em style="color: rgb(0, 0, 0); font-family: 'Times New Roman'; font-size: medium; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><label class="optional">For 
+	example </em>
+	<span style="color: rgb(0, 0, 0); font-family: 'Times New Roman'; font-size: medium; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+	<label class="optional"> COO/Vice-President</span></label><br />
+<input name="eep_exact_title" type="text" style="width: 500px" />&nbsp;
+<em> (Optional)&nbsp; [EEP-]<br />
+	</em>
+	<br />
+	<label>Start date-Year </label><br />
+<input name="eep-start-date-year" type="text" />&nbsp; <em>[EEP- ]</em><br />
+	<br />
+<label>	End Date-Year</label><br>
+<input name="eep-end-date-year" type="text" />&nbsp; <em>[EEP- ]&nbsp; {The 
+	field will NOT show up if Mark-Box &quot;Present&quot; selected</em><br />
+	
+	<em>
+	<br />
+	<input type="checkbox" name="eep_add_new_company2" value="1"/>
+	</em>
+<label class="optional"> Hide above employment information on Expert Profile from general public&nbsp;<em> [EEP- ]<br />
+	</em></label>
+<br />
+
+<input name="eep_submit_employment" type="submit" value="Add to Profile" style="width: 295px" />&nbsp;&nbsp; 
+	<em>[EEP- ]</em>&nbsp; <em> <a href="expert-profile.html" target="blank">Click here to preview what you have accomplished so far</a>&nbsp;&nbsp; 
+	[EEP9]
+</em>
+<br />
+<br />
+<input name="eep-add-more-employment-fields" type="submit" value="Add more fields for the next employment" style="width: 295px" />&nbsp;&nbsp; 
+
+	<em>[EEP-]<br />
+	<br />
+	</em><br />
+	<h3 class="style1">Education Section of Expert's Profile: </h3>
+	
+</form>
+<!--<span><strong>Is this form pristine (new): </strong>{{eep.$pristine}}</span><br>
+            <span><strong>Does this form have errors: </strong>{{eep.$error}}</span><br>
+            <span><strong>Was the form submitted: </strong>{{eep.$submitted}}</span><br>
+             <span><strong>Is this form valid: </strong>{{eep.$valid}}</span>
+<br>-->
+
+<p>
+	<strong><em>Lets start with your most recent degree:
+</em></strong>
+</p>
+<p>
+	&nbsp;</p>
+<label>	Start typing your school-college-university name below and select the name 
+from drop-down list:<br />
+	<em>If you can not identify your school-college-university from the drop-down list<br />
+	just 
+	type the name in a field and mark &quot;New Learning Institution&quot; box</em></label><br />
+<input name="eep-company-name0" type="text" style="width: 500px" />&nbsp; <em>
+	[EEP- ] </em>&nbsp; 
+<input type="checkbox" name="eep-new-university" value="1"/>New School/College/University&nbsp;
+	<em>[EEP- ]</em><br />
+<br />
+<label>	Select Country from Drop-Down list:</label><br />
+
+<select name="Select3" style="width: 267px">
+				<option value="1"></option>
+	<option value="2">Executive</option>
+	<option value="3">Manager</option>
+	<option value="4">Professional</option>
+	<option value="5">Partner</option>
+	<option value="6">Consultant</option>
+	<option value="7">Advisor</option>
+	<option value="8">Member of the Board</option>
+	<option value="9">Administrator</option>
+	<option value="10">Clerk</option>
+	<option value="11"></option>
+	<option value="12"></option>
+	<option value="13"></option>
+
+			</select>&nbsp; <em>[EEP- ]<br />
+</em>
+<br />
+<label>	Select State or Province (to US and Canada)</label>
+<br />
+<select name="Select2" style="width: 267px">
+				<option value="1"></option>
+	<option value="2">Executive</option>
+	<option value="3">Manager</option>
+	<option value="4">Professional</option>
+	<option value="5">Partner</option>
+	<option value="6">Consultant</option>
+	<option value="7">Advisor</option>
+	<option value="8">Member of the Board</option>
+	<option value="9">Administrator</option>
+	<option value="10">Clerk</option>
+	<option value="11"></option>
+	<option value="12"></option>
+	<option value="13"></option>
+
+</select>&nbsp; <em>[EEP- ]&nbsp; {will appier only if US or Canada&nbsp; 
+above is selected}</em><br />
+<br />
+<label> Your degree (sample: JD)</label><br />
+<input name="eep-company-city0" type="text" style="width: 300px" />&nbsp; <em>
+	[EEP- ]</em><br />
+<br />
+<label> Your Major</label><br />
+<input name="eep-company-city1" type="text" style="width: 300px" />&nbsp; <em>
+	[EEP- ]</em><br />
+	<br />
+	<label>Graduation Year</label><br />
+<input name="eep-start-date-year0" type="text" />&nbsp; <em>[EEP- ]</em><br />
+	<br />
+	<em>OR<br />
+</em><br />
+<label class="optional">	<input type="checkbox" name="eep_current_student" value="1"/> Present
+	<em></em>&nbsp;<em>Mark the box &quot;Present&quot; if you are still student<label class="optional"><br />
+<br />
+	<input type="checkbox" name="eep_add_new_company3" value="1"/> Hide above 
+educational information on Expert Profile from general public&nbsp; [EEP- ]</label><br />
+	</em>
+<br />
+</label>
+
+<input name="eep_submit_education" type="submit" value="Add to Profile" style="width: 295px" />&nbsp;&nbsp; 
+	<em>[EEP- ]</em>&nbsp; <em> <a href="expert-profile.html" target="blank">Click here to preview what you have accomplished so far</a>&nbsp;&nbsp; 
+	[EEP9]
+</em>
+<br />
+
+<br />
+<input name="eep_add_more_education_fields" type="submit" value="Add more fields for education" style="width: 295px" />&nbsp;&nbsp; 
+
+	<em>[EEP-]</em>
+<p>&nbsp;</p>
+<h3 class="style1">Availability Section of Expert&#39;s profile</h3>
+<p class="style2">
+<label> <strong>Available to work options: </strong></label><br/>
+<input type="checkbox" name="option1" value="Work by Contract"/> Work by Contract<br/>
+<input type="checkbox" name="option2" value="Work Part Time"/> Work Part Time<br/>
+<input type="checkbox" name="option3" value="Work Full Time"/> Work Full Time<br/>
+<input type="checkbox" name="option4" value="Consulting"/> Consulting<br/>
+<input type="checkbox" name="option5" value="Pro-Bono"/> Pro-Bono<br/>
+
+</p>
+
+<h3 class="style1">Expertise Section of Expert&#39;s Profile</h3>
+<p class="style2">
+<label> Type main idea (two-three words only)&nbsp; <em>(For example:Landscape Architect)</em></label><br/>  
+<input name="eep_expertise1_main" type="text" style="width: 300px" />&nbsp; [EEP-]<br />
+<br />
+<label> Please type detailed description of your expertise below:</label>
+<br />
+<input name="eep_expertise1" type="text" style="width: 800px; height: 127px" />&nbsp; [EEP-]<br />
+
+<br/>
+</p>
+<br />
+<br />
+ <label> support your expertise please select Company(s) and/or 
+Schools/Colleges/Universities from the Drop-Down List:<br />
+<em>{That information below comes from your employment and educational sections}</em></label><br />
+<select name="eep_support_entities" style="width: 300px">
+<option value="1">Self-Educated</option>
+<option value="2">Entity1</option>
+<option value="3">Entity2</option>
+<option value="4">Entity3</option>
+<option value="5">Entity4</option>
+<option value="6">Entity5</option>
+</select>&nbsp; 
+	<em>[EEP- ]</em><br />
+<br />
+	<em>
+	<input type="checkbox" name="eep_add_new_company4" value="1"/><label> Hide above 
+expertise on my publicly available Expert Profile
+	&nbsp; [EEP- ]</em></label><br />
+<br/>
+<input name="eep_submit_education0" type="submit" value="Add to Profile" style="width: 295px" />&nbsp;&nbsp; 
+	<em>[EEP- ]</em>&nbsp; <em> <a href="expert-profile.html" target="blank">Click here to preview what you have accomplished so far</a>&nbsp;&nbsp; 
+	[EEP9]
+</em>
+<br />
+<br />
+<input name="eep_add_more_education_fields0" type="submit" value="Add more fields for Expertise" style="width: 295px" />&nbsp;&nbsp; 
+
+	<em>[EEP-]</em>
+<p>&nbsp;</p>
+
+<h3 class="style1">Hobbies, Sport and Other Activities (Optional):</h3>
+<br />
+<label> Please select from the list of General Indoors Hobbies:&nbsp; <em>(you can select 
+severals)</em></label><br/>
+
+<select name="eep_general_indoors_hobbies" style="width: 300px">
+<option value="1">3D printing</option>
+<option value="2">Amateur radio</option>
+<option value="3">Acting</option>
+<option value="4">Baton twirling</option>
+<option value="5">Board games</option>
+<option value="6">Book restoration</option>
+<option value="7">Cabaret</option>
+<option value="8">Calligraphy</option>
+<option value="9">Candle making</option>
+<option value="10">Computer programming</option>
+<option value="11">Coffee roasting</option>
+<option value="12">Cooking</option>
+<option value="13">Coloring</option>
+<option value="14">Cosplaying</option>
+<option value="15">Couponing</option>
+<option value="16">Creative writing</option>
+<option value="17">Crocheting</option>
+<option value="18">Crossword puzzles</option>
+<option value="19">Cryptography</option>
+<option value="20">Dance</option>
+<option value="21">Digital arts</option>
+<option value="22">Drama</option>
+<option value="23">Drawing</option>
+<option value="24">Do it yourself</option>
+<option value="25">Electronics</option>
+<option value="26">Embroidery</option>
+<option value="27">Fashion</option>
+<option value="28">Flower arranging</option>
+<option value="29">Foreign language learning</option>
+<option value="30">Gaming (tabletop games and role-playing games)</option>
+<option value="31">Gambling</option>
+<option value="32">Genealogy</option>
+<option value="33">Glassblowing</option>
+<option value="34">Gunsmithing</option>
+<option value="35">Homebrewing</option>
+<option value="36">Ice skating</option>
+<option value="37">Jewelry making</option>
+<option value="38">Jigsaw puzzles</option>
+<option value="39">Juggling</option>
+<option value="40">Knapping</option>
+<option value="41">Knitting</option>
+<option value="42">Kabaddi</option>
+<option value="43">Knife making</option>
+<option value="44">Kombucha Brewing</option>
+<option value="45">Lacemaking</option>
+<option value="46">Lapidary</option>
+<option value="47">Leather crafting</option>
+<option value="48">Lego building</option>
+<option value="49">Lockpicking</option>
+<option value="50">Machining</option>
+<option value="51">Macrame</option>
+<option value="52">Metalworking</option>
+<option value="53">Magic</option>
+<option value="54">Model building</option>
+<option value="55">Listening to music</option>
+<option value="56">Origami</option>
+<option value="57">Painting</option>
+<option value="58">Playing musical instruments</option>
+<option value="59">Pet</option>
+<option value="60">Poi</option>
+<option value="61">Pottery</option>
+<option value="62">Puzzles</option>
+<option value="63">Quilting</option>
+<option value="64">Reading</option>
+<option value="65">Scrapbooking</option>
+<option value="66">Sculpting</option>
+<option value="67">Sewing</option>
+<option value="68">Singing</option>
+<option value="69">Sudoku</option>
+<option value="70">Sketching</option>
+<option value="71">Soapmaking</option>
+<option value="72">Stand-up comedy</option>
+<option value="73">Table tennis</option>
+<option value="74">Video gaming</option>
+<option value="75">Watching movies</option>
+<option value="76">Web surfing</option>
+<option value="77">Whittling</option>
+<option value="78">Wood carving</option>
+<option value="79">Woodworking</option>
+<option value="80">Worldbuilding</option>
+<option value="81">Writing</option>
+<option value="82">Yoga</option>
+<option value="83">Yo-yoing</option>
+</select><em> [EEP1]<br />
+<br />	
+</em>
+<br />
+<label> Please select from the list of General Outdoors Hobbies:&nbsp; <em>(you can select 
+severals)</em></label><br/>
+
+<select name="eep_general_outdoors_hobbies" style="width: 300px">
+<option value="1">Air sports</option>
+<option value="2">Archery</option>
+<option value="3">Astronomy</option>
+<option value="4">Backpacking</option>
+<option value="5">BASE jumping</option>
+<option value="6">Baseball</option>
+<option value="7">Basketball</option>
+<option value="8">Beekeeping</option>
+<option value="9">Bird watching</option>
+<option value="10">Blacksmithing</option>
+<option value="11">Board sports</option>
+<option value="12">Bodybuilding</option>
+<option value="13">Brazilian jiu-jitsu</option>
+<option value="14">Community</option>
+<option value="15">Cycling</option>
+<option value="16">Camping</option>
+<option value="17">Dowsing</option>
+<option value="18">Driving</option>
+<option value="19">Fishing </option>
+<option value="20">Flag Football</option>
+<option value="21">Flying</option>
+<option value="22">Flying disc</option>
+<option value="23">Foraging</option>
+<option value="24">Gardening</option>
+<option value="25">Geocaching</option>
+<option value="26">Ghost hunting</option>
+<option value="27">Graffiti</option>
+<option value="28">Handball</option>
+<option value="29">Hiking</option>
+<option value="30">Hooping</option>
+<option value="31">Horseback riding</option>
+<option value="32">Hunting</option>
+<option value="33">Inline skating</option>
+<option value="34">Jogging</option>
+<option value="35">Kayaking</option>
+<option value="36">Kite flying</option>
+<option value="37">Kitesurfing</option>
+<option value="38">LARPing</option>
+<option value="39">Letterboxing</option>
+<option value="40">Metal detecting</option>
+<option value="41">Motor sports</option>
+<option value="42">Mountain biking</option>
+<option value="43">Mountaineering</option>
+<option value="44">Mushroom hunting/Mycology</option>
+<option value="45">Netball</option>
+<option value="46">Nordic skating</option>
+<option value="47">Orienteering</option>
+<option value="48">Paintball</option>
+<option value="49">Parkour</option>
+<option value="50">Photography</option>
+<option value="51">Polo</option>
+<option value="52">Rafting</option>
+<option value="53">Rappelling</option>
+<option value="54">Rock climbing</option>
+<option value="55">Roller skating</option>
+<option value="56">Rugby</option>
+<option value="57">Running</option>
+<option value="58">Sailing</option>
+<option value="59">Sand art</option>
+<option value="60">Scouting</option>
+<option value="61">Scuba diving</option>
+<option value="62">Sculling or Rowing</option>
+<option value="63">Topiary</option>
+<option value="64">Shooting</option>
+<option value="65">Shopping</option>
+<option value="66">Skateboarding</option>
+<option value="67">Skiing</option>
+<option value="68">Skimboarding</option>
+<option value="69">Skydiving</option>
+<option value="70">Slacklining</option>
+<option value="71">Snowboarding</option>
+<option value="72">Stone skipping</option>
+<option value="73">Surfing</option>
+<option value="74">Swimming</option>
+<option value="75">Taekwondo</option>
+<option value="76">Tai chi</option>
+<option value="77">Urban exploration</option>
+<option value="78">Vacation</option>
+<option value="79">Vehicle restoration</option>
+<option value="80">Walking</option>
+<option value="81">Water sports</option>
+
+
+</select><em> [EEP2]<br />
+<br />		
+<br />
+<label> Please select from the list of Collection Hobbies - Indoors:&nbsp; (you can select 
+severals)</label><br/>
+
+<select name="eep_collection_indoors_hobbies" style="width: 300px">
+<option value="1">Action figure</option>
+<option value="2">Antiquing</option>
+<option value="3">Art collecting</option>
+<option value="4">Book collecting</option>
+<option value="5">Card collecting</option>
+<option value="6">Coin collecting</option>
+<option value="7">Comic book collecting</option>
+<option value="8">Deltiology (postcard collecting)</option>
+<option value="9">Die-cast toy</option>
+<option value="10">Element collecting</option>
+<option value="11">Movie and movie memorabilia collecting</option>
+<option value="12">Record collecting</option>
+<option value="13">Stamp collecting</option>
+<option value="14">Video game collecting</option>
+<option value="15">Vintage cars</option>
+</select> [EEP3]<br />
+<br />	<br />	
+<br />
+<label> Please select from the list of Competion Hobbies - Outdoors:&nbsp; (you can select 
+severals)</label><br/>
+
+<select name="eep_collection_outdoors_hobbies" style="width: 300px">
+<option value="1">Antiquities</option>
+<option value="2">Auto audiophilia</option>
+<option value="3">Flower collecting and pressing</option>
+<option value="4">Fossil hunting</option>
+<option value="5">Insect collecting</option>
+<option value="6">Metal detecting</option>
+<option value="7">Stone collecting</option>
+<option value="8">Mineral collecting</option>
+<option value="9">Rock balancing</option>
+<option value="10">Sea glass collecting</option>
+<option value="11">Seashell collecting</option>
+</select> [EEP4]<br />
+<br />	<br />	
+<br />
+<label> Please select from the list of Competition Hobbies -Indoors:&nbsp; (you can select 
+severals)</label><br/>
+
+<select name="eep_competition_outdoors_hobbies" style="width: 222px">
+<option value="1">Aqua-lung</option>
+<option value="2">Animal fancy</option>
+<option value="3">Badminton</option>
+<option value="4">Baton Twirling</option>
+<option value="5">Billiards</option>
+<option value="6">Bowling</option>
+<option value="7">Boxing</option>
+<option value="8">Bridge</option>
+<option value="9">Cheerleading</option>
+<option value="10">Chess</option>
+<option value="11">Color guard</option>
+<option value="12">Curling</option>
+<option value="13">Dancing</option>
+<option value="14">Darts</option>
+<option value="15">Debate</option>
+<option value="16">Fencing</option>
+<option value="17">Go</option>
+<option value="18">Gymnastics</option>
+<option value="19">Marbles</option>
+<option value="20">Martial arts</option>
+<option value="21">Mahjong</option>
+<option value="22">Poker</option>
+<option value="23">Slot car racing</option>
+<option value="24">Table football</option>
+<option value="25">Video Games</option>
+<option value="26">Volleyball</option>
+<option value="27">Weightlifting</option>
+</select> [EEP5]<br />
+<br />		
+<br />
+<label> Please select from the list of Competition Hobbies -Outdoors:&nbsp; (you can select 
+severals)</label><br/>
+
+<select name="eep_competition_outdoors_hobbies" style="width: 222px">
+<option value="1">Airsoft</option>
+<option value="2">American football</option>
+<option value="3">Archery</option>
+<option value="4">Association football</option>
+<option value="5">Australian rules football</option>
+<option value="6">Auto racing</option>
+<option value="7">Baseball</option>
+<option value="8">Beach Volleyball</option>
+<option value="9">Breakdancing</option>
+<option value="10">Climbing</option>
+<option value="11">Cricket</option>
+<option value="12">Cycling</option>
+<option value="13">Disc golf</option>
+<option value="14">Dog sport</option>
+<option value="15">Equestrianism</option>
+<option value="16">Exhibition drill</option>
+<option value="17">Field hockey</option>
+<option value="18">Figure skating</option>
+<option value="19">Fishing</option>
+<option value="20">Footbag</option>
+<option value="21">Golfing</option>
+<option value="22">Handball</option>
+<option value="23">Ice hockey</option>
+<option value="24">Judo</option>
+<option value="25">Jukskei</option>
+<option value="26">Kart racing</option>
+<option value="27">Knife throwing</option>
+<option value="28">Lacrosse</option>
+<option value="29">Laser tag</option>
+<option value="30">Model aircraft</option>
+<option value="31">Pigeon racing</option>
+<option value="32">Racquetball</option>
+<option value="33">Radio-controlled car racing</option>
+<option value="34">Roller derby</option>
+<option value="35">Rugby league football</option>
+<option value="36">Sculling or Rowing</option>
+<option value="37">Shooting sport</option>
+<option value="38">Skateboarding</option>
+<option value="39">Speed skating</option>
+<option value="40">Squash</option>
+<option value="41">Surfing</option>
+<option value="42">Swimming</option>
+<option value="43">Table tennis</option>
+<option value="44">Tennis</option>
+<option value="45">Tour skating</option>
+<option value="46">Triathlon</option>
+<option value="47">Ultimate Disc </option>
+<option value="48">Volleyball</option>
+</select> [EEP6]<br />
+<br />	
+<br />
+<label> Please select from the list of Observation Hobbies - Indoors:&nbsp; (you can select 
+severals)</label><br/>
+
+<select name="eep_observation_indoors_hobbies" style="width: 300px">
+<option value="1">Fishkeeping</option>
+<option value="2">Learning</option>
+<option value="3">Microscopy</option>
+<option value="4">Reading</option>
+<option value="5">Shortwave listening</option>
+<option value="6">Videophilia</option>
+</select> [EEP2]<br />
+<br />	<br />	
+<br />
+<label> Please select from the list of Observation Hobbies - Outdoors:&nbsp; (you can select 
+severals)</label><br/>
+
+<select name="eep_observation_outdoors_hobbies" style="width: 272px">
+<option value="1">Aircraft spotting</option>
+<option value="2">Amateur astronomy</option>
+<option value="3">Amateur geology</option>
+<option value="4">Astrology</option>
+<option value="5">Birdwatching</option>
+<option value="6">Bus spotting</option>
+<option value="7">Geocaching</option>
+<option value="8">Gongoozling</option>
+<option value="9">Herping</option>
+<option value="10">Meteorology</option>
+<option value="11">People watching</option>
+<option value="12">Photography</option>
+<option value="13">Trainspotting</option>
+<option value="14">Traveling</option>
+<option value="15">Hiking/backpacking</option>
+<option value="16">Whale Watching</option>
+</select> [EEP2]<br />
+<br />	<br />	
+<br />
+</em><labelclass="optional"> If you can not find your hobbie-sport-other activity in above lists - just 
+type it below</label><em><br/>
+
+<label> Separated them by forward slash (/) to be searchable. For example: Collecting 
+Dolls/Making Wine</label><br />
+<input name="eep-education-certification-abbr0" type="text" style="width: 500px" />[EEP7]<br /><br />
+
+<input name="eep_submit_education1" type="submit" value="Add to Profile" style="width: 295px" />&nbsp;&nbsp; 
+	[EEP- ]&nbsp; <a href="expert-profile.html" target="blank">Click here to preview what you have accomplished so far</a>&nbsp;&nbsp; 
+	[EEP9]
+<br />	<br />	
+</body>
+
+</html>

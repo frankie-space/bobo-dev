@@ -1,0 +1,22 @@
+{
+  "name": "project-suli",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "*",
+    "express": "*",
+    "jsonwebtoken": "^7.4.0",
+    "mongoose": "*",
+    "mongoose-title-case": "0.0.4",
+    "mongoose-validator": "^1.2.6",
+    "morgan": "*",
+    "nodemailer": "^4.0.1",
+    "nodemailer-sendgrid-transport": "^0.2.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
