@@ -230,6 +230,7 @@ angular.module('expertProfileControllers', ['userconnectionServices','userpendin
             });
         }
 
+        //Get Employment for Expert Profile
         this.getEmployment = function () {
             $scope.employerData = {
                 email: atob($routeParams.email)
