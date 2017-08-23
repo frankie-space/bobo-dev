@@ -259,6 +259,7 @@ angular.module('expertProfileControllers', ['userconnectionServices','userpendin
             });
         }
 
+        //Get Education for Expert Profile
         this.getEducation = function () {
             $scope.educationData = {
                 email: atob($routeParams.email)
