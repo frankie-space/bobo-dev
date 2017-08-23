@@ -73,7 +73,7 @@
 
             <div>Already have an account? <a href="/login"> Sign in </a></div>
             <input type="radio" name="radio" id='radio-btn' value="Remind me Later" ng-click="register.disablebutton();"> Remind me later 
-            <input type="submit" name = "submit" id = 'close-btn' ng-click="register.homeRedirect();" value="Close" disabled="disabled" class="close-btn">            
+            <input type="button" name = "submit" id = 'close-btn' ng-click="register.homeRedirect();" value="Close" disabled="disabled" class="close-btn">            
             <div class="row show-hide-message" ng-show="register.successMsg">
                 <div class="alert alert-success">{{register.successMsg}}</div>
             </div><br>

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Log In</title>
+       <link rel="stylesheet" type="text/css" href="project-suli/style.css"/>       
+       <script src="../../../../app/js/app.js"></script>
+       <script src="../../../../assets/js/angular.js"></script>
+      <script src="/Users/ritesh/project-suli/public/app/services/countryServices.js"></script>
+    </head>
+
+    
+    <body>
+        <div class="page-header"></div>    
+
+        <a href="/gp/customer-preferences/select-language/ref=topnav_lang?ie=UTF8&preferencesReturnUrl=%2F" id="icp-nav-flyout" class="nav-a nav-a-2 icp-link-style-2">
+  <span class="icp-nav-link-inner">
+    <span class="nav-line-1">
+      <span class="icp-nav-globe-img-2"></span>
+      <span class="icp-nav-language">EN</span>
+    </span>
+    <span class="nav-line-2">&nbsp;
+      <span class="nav-icon nav-arrow"></span>
+    </span>
+  </span>
+  <span class="icp-nav-link-border"></span>
+</a>
+        <div data-ng-controller="countryCtrl">
+	<select name="eep_expert_country_location"  style="width: 300px">
+		<option ng-model="countryList" ng-repeat="country in countryList track by $index" value="">{{country.name}}</option>
+	</select>&nbsp; <em>[EEP- 8]</em><br/><br/>
+        </div>
+    </body>
+ </html>

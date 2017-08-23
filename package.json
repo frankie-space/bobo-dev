@@ -6,16 +6,24 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@google-cloud/storage": "^1.1.1",
+    "angular-material": "^1.1.4",
+    "angular-right-click": "^0.1.1",
+    "angularjs-dropdown-multiselect": "^2.0.0-beta.10",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "*",
     "express": "*",
     "jsonwebtoken": "^7.4.0",
     "mongoose": "*",
+    "mongoose-auto-increment": "^5.0.1",
     "mongoose-title-case": "0.0.4",
     "mongoose-validator": "^1.2.6",
     "morgan": "*",
+    "ng-dialog": "^1.4.0",
     "nodemailer": "^4.0.1",
-    "nodemailer-sendgrid-transport": "^0.2.0"
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "validator": "^7.0.0"
   },
   "author": "",
   "license": "ISC"

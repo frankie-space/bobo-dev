@@ -1,9 +1,10 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs'); 
- var titlize = require('mongoose-title-case');
- var validate = require('mongoose-validator');
+var mongoose = require('mongoose');// Import Mongoose package
+var Schema = mongoose.Schema;//Assign mongoose schema function to variable
+var bcrypt = require('bcrypt-nodejs'); //Import bcrypt package
+ var titlize = require('mongoose-title-case');//Import mongoose Title Case Plugin
+ var validate = require('mongoose-validator');//Import Mongoose Validator Plugin
 
+//User first name validator
 var firstnameValidator = [
 validate({
   validator: 'matches',
@@ -16,6 +17,7 @@ validate({
   message: 'First Name should be between {ARGS[0]} and {ARGS[1]} characters'
 })
 ];
+//User last name validator
 var lastnameValidator = [
 validate({
   validator: 'matches',
@@ -41,6 +43,7 @@ validate({
 //   message: 'Name should be between {ARGS[0]} and {ARGS[1]} characters'
 // })
 // ];
+//User email name validator
 var emailValidator = [
 validate({
   validator: 'isEmail',
@@ -52,7 +55,7 @@ validate({
   message: 'Email should be between {ARGS[0]} and {ARGS[1]} characters'
 })
 ];
-
+//User password  validator
 var passwordValidator = [
 validate({
   validator: 'matches',
@@ -65,7 +68,7 @@ validate({
   message: 'Password should be between {ARGS[0]} and {ARGS[1]} characters'
 })
 ];
-
+// User Mongoose Schema
 var UserSchema = new Schema({
     firstname: {type:String, required:true, validate: firstnameValidator },
     lastname: {type:String, required:true, validate: lastnameValidator },
@@ -75,27 +78,27 @@ var UserSchema = new Schema({
     active: { type: Boolean, required:true, default:false },
     temporarytoken:{ type: String, required:true}
 });
-
+// Middleware to ensure password is encrypted before saving user to database
 UserSchema.pre('save',function(next){
     var user = this;
 
-    if(!user.isModified('password')) return next();
+    if(!user.isModified('password')) return next();// If password was not changed or is new, ignore middleware
 
+// Function to encrypt password 
     bcrypt.hash(user.password, null, null, function(err,hash){
         if(err)return next(err);
         user.password= hash;
         next();
     });
 });
-
+// Mongoose Plugin to change fields to title case after saved to database (ensures consistency)
 UserSchema.plugin(titlize, {
   paths: ['firstname', 'lastname']
 });
-
-
+// Method to compare passwords in API (when user logs in) 
 UserSchema.methods.comparePassword = function(password){
-    return bcrypt.compareSync(password,this.password);
+    return bcrypt.compareSync(password,this.password);// Returns true if password matches, false if doesn't
 };
 
 
-module.exports = mongoose.model('User',UserSchema);
+module.exports = mongoose.model('User',UserSchema);// Export User Model for us in API

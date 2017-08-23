@@ -1,22 +1,19 @@
         <div class="page-header"></div>    
         <h3>Resend Activation Link</h3>
-        <div class="container">
-            <form ng-submit="resend.checkCredentials(loginData);" >
+         <div class="container">
+            <form ng-submit="resend.checkCredentials(loginData);" novalidate>
                 <h4>Log in</h4>
-                <p>Email (phone for mobile accounts)</p>
+             <p>Email (phone for mobile accounts)</p>
                 <div class="form-input">
-                    <input type="text" name="expertemail" ng-model="resend.loginData.email">
-                </div>
+                <input type="text" name="expertemail"ng-disabled="resend.disabled" ng-model="resend.loginData.email" required>
+            </div>
+            
                 <p>Password<a href="/resetpassword"> Forgot password?</a></p>
                 <div class="form-input">
-                    <input type="password" name = "pwd" ng-model="resend.loginData.password"> 
-                </div>
-                <input type="submit" name = "submit" value="Log In" class="btn-login"/>
-                <br><br>
-                <input type="checkbox"/> Keep me logged in.<a href="#"> Details</a>
-                <br>
-                <div class="dividerbreak"><h5>New to BoBo?</h5></div>
-                <a href="/register">Create your BoBo account</a>
+                <input type="password" name = "pwd" ng-disabled="resend.disabled" ng-model="resend.loginData.password" required> 
+                </div><br>
+                <input ng-disabled="resend.disabled" class="btn-login" type="submit" name = "submit" value="Resend Activation link"/>
+                </br>
             </form><br>
             <div class="row show-hide-message" ng-show="resend.successMsg">
              <div class="alert alert-success">{{resend.successMsg}}</div>
@@ -25,6 +22,6 @@
             <div class="row show-hide-message" ng-show="resend.errorMsg">
                 <div class="alert alert-danger">{{resend.errorMsg}}</div>
             </div>
-        </div>
+            </div>
     </body>
  </html>

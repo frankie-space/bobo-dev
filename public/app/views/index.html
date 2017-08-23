@@ -8,11 +8,25 @@
    <title>BoBo</title>
    <!-- Cascade Style Sheets-->
    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    
+   <!--<link rel="stylesheet" type="text/css" href="assets/css/style.css">-->
+   <link rel="stylesheet" href="assets/css/angular-material.css">
+   <link rel="stylesheet" href="assets/css/ng-right-click.css">
+
+   <!-- <link rel="stylesheet" href="assets/css/ngDialog.min.css">
+   <link rel="stylesheet" href="assets/css/ngDialog-theme-default.min.css"> -->
+
     <!--Main Angular files-->
     <script src="assets/js/angular.js"></script>
+     <script src="assets/js/angular-aria.js"></script> 
     <script src="assets/js/angular-route.js"></script>
+    <script src="assets/js/angular-material.js"></script> 
+    <script src="assets/js/angular-animate.js"></script>
+    <!-- <script src="assests/js/ng-right-click.js"></script> -->
+    <script src="assets/js/ng-right-click.js"></script>
+    <!-- <script src="assets/js/ngDialog.min.js"></script> -->
+    <!--<script src="assets/js/lodash.js"></script>-->
+     <!--<script src="assets/js/angularjs-dropdown-multiselect.js"></script>  -->
+   
 
     <!--Angular Config/Routes-->
     <script src="app/app.js"></script>  
@@ -21,12 +35,92 @@
     <!--Angular Controllers-->
     <script src="app/controllers/usrCtrl.js"></script>  
     <script src="app/controllers/mainCtrl.js"></script> 
-     <script src="app/controllers/emailCtrl.js"></script>
+     <script src="app/controllers/emailCtrl.js"></script>  
+     <script src="app/controllers/countryCtrl.js"></script>  
+     <script src="app/controllers/expertProfileCtrl.js"></script>
+      <script src="app/controllers/composeEmailCtrl.js"></script>
+     
+      
+     <!--<script src="app/controllers/stateCtrl.js"></script>  -->
+     
 
     <!--Angular Services-->  
     <script src="app/services/userServices.js"></script>
     <script src="app/services/authServices.js"></script>
+    <script src="app/services/countryServices.js"></script>
+    <script src="app/services/stateServices.js"></script>
+    <script src="app/services/profileServices.js"></script>
+    <script src="app/services/uploadFileServices.js"></script>
+    <script src="app/services/employerServices.js"></script>
+    <script src="app/services/companyServices.js"></script>
+    <script src="app/services/educationServices.js"></script>
+    <script src="app/services/expertiseServices.js"></script>
+    <script src="app/services/hobbyServices.js"></script>
+    <script src="app/services/availabilityServices.js"></script>
+    <script src="app/services/endorsementServices.js"></script>
+    <script src="app/services/userconnectionServices.js"></script>
+    <script src="app/services/userpendingconnectionServices.js"></script>
+   <!--Angular Directives--> 
+    <script src="app/directives/fileModel.js"></script>
+    <script src="app/directives/expertiseWordCountLimit.js"></script>
+    <!--<script src="app/directives/multiselectDropdown.js"></script>-->
     
+    
+    
+     
+      <style>
+   .navbar  > ul > li:hover > a, .navbar  > ul > a {
+    background:#2e2728;
+}
+.navbar.arrow {
+    font-size:11px;
+    line-height:0%;
+}
+.navbar li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+ 
+.sub-menu {
+    width:160%;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    /*box-shadow:0px 2px 3px rgba(0,0,0,0.2);*/
+    /*background:#2e2728;*/
+    background:#2e2724;
+}
+ 
+.sub-menu li {
+    display:block;
+    font-size:16px;
+}
+ 
+.sub-menu li a {
+    padding:10px 30px;
+    /*display:block;*/
+    color: white;
+}
+ 
+/*.sub-menu li a:hover, .sub-menu  a {
+    background:grey;
+    
+}*/
+/*a.eep{
+ font-size: 12px;
+}*/
+.dropdown-menu li a {
+    color: black;
+
+}
+
+ 
+
+        </style>
   </head>
 
   <body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
@@ -35,22 +129,32 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">        
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="/login" ng-show="!main.isLoggedIn" >Login</a></li>
+            <li><a href="/login" ng-show="!main.isLoggedIn">Login</a></li>
             <li><a href="/register" ng-show="!main.isLoggedIn">Join World's Experts</a></li>
             <li><a href="#" ng-show="main.isLoggedIn" ng-click="main.logout();"> Logout</a></li>
-             <li><a href="/eep" ng-show="main.isLoggedIn" > Hello {{main.firstname}}</a></li>
-          </ul>
+
+            <li>
+                <a class="eep" href="#" ng-show="main.isLoggedIn">Hello {{main.firstname}}<br> Account & Lists<span class="arrow">&#9660;</span></a>
+                <ul class="sub-menu">
+                    <li ng-show="main.isLoggedIn"><a href="/eep">Edit your Expertise</a></li>
+                    <li ng-show="main.isLoggedIn"><a href="/expertprofile/{{main.encodedEmail}}">View Your Profile</a></li>
+                    <li class="dropdown" ng-show="main.isLoggedIn"><a class="dropdown-toggle" data-toggle="dropdown">Ask to Endorse <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/communicationconsolewithemail">By Email</a></li>
+                            <li><a ui-sref="b">By IMessage</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
         </div>
-      </div>
-    </nav>
-
-
+        </div>
+        </nav>
     <div class="container theme-showcase" role="main">
       <div ng-view></div>
     </div>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

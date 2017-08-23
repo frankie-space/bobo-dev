@@ -1,2 +1,599 @@
-<div class="page-header"></div>
-<p>Welcome to your World's Expert Profile!.
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>edit-expert-profile</title>
+    <style>  
+        h3{
+            font-family: Comic sans-serif;
+            color: red;
+        }
+        .visualmap1{
+            padding-top: 500px;
+            text-align: left;
+        }
+        .names{
+            font-weight: bold;
+            text-align:end;
+            font-size: 35px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .parallax{
+            background: url("assets/image/{{expertprofile.backgroundImage}}") no-repeat center;
+            background-size:cover;
+            /* background-attachment: fixed; */
+            height:500px;
+        }
+        /* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+        /* @media only screen and (max-device-width: 1024px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+        } */
+        .parallax2{
+            height:450px;
+        }
+                
+        .visualmap{
+            text-align: center; 
+            font-weight: bold;
+            padding-top:10%; 
+            
+        }
+        .visualmap2{
+            text-align: center;
+            /* padding-top:10%; */
+            font-weight: bold;
+            
+        }
+        .degreename{
+            text-align: right;
+            font-weight: bold;
+            font-size: 24px;
+            /* margin-left: 900px;  */
+            /* align-content: right; */
+        }
+        table {
+            border-collapse: collapse;
+            align-content: center;
+
+            /* align-self: center; */
+            /* margin-left: 50px;  */
+            width: 100%;
+            
+        }
+        table, td, th {
+            border: 1px solid black;
+            vertical-align: bottom;
+            text-align: center;
+            height: 100px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .connectionname{
+            font-weight: bold;
+            text-align:inherit; 
+            font-size: 25px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .profilepic{
+            max-width: 14%;
+            max-height: auto;
+            /* padding-top: 150px; */
+            margin: 80px;
+            position: relative;
+        }
+        .metroareaname{
+            text-align: right;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            padding-top: 180px;
+            
+            /* padding-bottom: 120px; */
+            margin-right: 50px;
+        }
+        .knowledgesection{
+        text-align: center;
+        font-weight: bold;
+        color: blue;
+        }
+        .employmentEducation{
+        text-align: center;
+        font-weight: bold;
+        color: red;
+        }
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            49% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @-moz-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            49% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @-o-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            49% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+         .blinkingIcon{
+        width:50px;
+        height:50px;
+        background: url(assets/image/square-rounded-256.png) no-repeat; 
+
+         -webkit-animation: blink 1s;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation: blink 1s;
+            -moz-animation-iteration-count: infinite;
+            -o-animation: blink 1s;
+            -o-animation-iteration-count: infinite; 
+
+         } 
+         .icon
+        {
+            width: 8%;
+            height: 51px;
+            background: url(assets/image/square-rounded-256.png) no-repeat;
+        } 
+        .icon:hover {
+            /* max-width: 28%;
+            max-height: auto; */
+            /* background-size: auto; */
+            max-width: 8%;
+            max-height: 51px;
+            background: url(https://storage.googleapis.com/bobo-0518/{{expertprofile.profileImageUploaded}});
+            }
+        .icon2{
+        width:20px;
+        height:20px;
+        border: 10px; 
+        border: 1px solid black;
+        }
+        .icon3{
+        width:20px;
+        height:20px;
+        border: 10px; 
+        border: 1px solid black;
+        /* display:; */
+            
+        }
+        /* .icon :hover{ */
+            /* background-image: url('overimage.jpg'), url('image1.jpg'); */
+            /* width:50px;
+        height:50px;
+            background: url("https://storage.googleapis.com/bobo-0518/{{country.profileImageUploaded}}") no-repeat;
+            */
+            /* background-image: url("https://storage.googleapis.com/bobo-0518/{{country.profileImageUploaded}}"), url("assets/image/square-rounded-256.png"); */
+            /* display: block; */
+        /* } */
+
+        .starrating { 
+            font-size: 30px;
+            display: inline-block;
+            color: grey;
+            cursor: pointer;
+        }
+        .verticalLine {
+        /* border-left:  thin solid gray; */
+            display: inline-block;  
+            border-left: thick solid #000000;
+            height:200px;
+        
+        }
+        
+        .rating {
+            color: #a9a9a9;
+            margin: 0;
+            padding: 0;
+        }
+        ul.rating {
+            display: inline-block;
+        }
+        .rating li {
+            list-style-type: none;
+            display: inline-block;
+            padding: 1px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .rating .filled {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="page-header"ng-init="expertprofile.getProfile();   country.getAvailabilities();country.getExpertise();country.getHobbies();"></div><br /> <br />   -->
+    <!-- expertprofile.getProfile(); expertprofile.getHobbies();  expertprofile.getAvailabilities(); -->
+    <div class="page-header" ng-init="expertprofile.getUserConnection(); expertprofile.getUserPendingConnection();  expertprofile.getProfile(); expertprofile.getAvailabilities(); expertprofile.getExpertise(); expertprofile.getEmployment(); expertprofile.getEducation();  expertprofile.getHobbies(); "></div><br /> <br />
+    <div ng-show="showConnectionRequestButton">
+        <button name="expertAddme" id="expertAddme"  type="button" ng-click="expertprofile.sendConnectionRequest();"  class="style6">Send Connection Request</button>
+        <div class="row show-hide-message" ng-show="expertprofile.connectionRequestMsg">
+            <div class="alert alert-success">{{expertprofile.connectionRequestMsg}}</div>
+        </div>
+    </div>
+    <br/>
+    <div ng-show="showEndorsementRequestButton">
+        <input type="button" name="expertEndorseme" id="expertEndorseme"  type="button" ng-click="expertprofile.sendEndorsementRequest();" value = "Endorse this person"  class="style6" />
+        <div class="row show-hide-message" ng-show="expertprofile.endorsementRequestMsg">
+            <div class="alert alert-success">{{expertprofile.endorsementRequestMsg}}</div>
+        </div>
+    </div>
+    <h3><center>My Expertise Related Connections</center></h3><br />
+    <!-- <p class="connectionname"> {{expertprofile.firstname}} {{expertprofile.lastname}}-----&nbsp;
+    <span ng-right-click menu-items="menuItems" menu-class="custom-css-class"><a href="/expertprofile" onclick="window.location.reload();"><img class="icon" /></a></span></p></br>  -->
+
+    <!--List of users with approved/accepted connection -->
+    <center>
+        <p class="connectionname" ng-repeat="person in expertprofile.users">{{person.firstname}} {{person.lastname}}  -----&nbsp; 
+            <span ng-right-click menu-items="menuItems" menu-class="custom-css-class">
+                <a href="/expertprofile/{{person.encodedEmail}}" ng-model="existingprofile" onclick="window.location.reload();">
+                    <img class="icon"/>
+                </a>
+            </span>
+        </p>
+    </center>
+    <!-- List of users with pending request/connection   -->
+    <center> 
+        <p class="connectionname" ng-repeat="pendingUser in expertprofile.pendingUsers">{{pendingUser.firstname}} {{pendingUser.lastname}}  -----&nbsp; 
+            <span ng-right-click="someFunction(pendingUser)" menu-items="menuItems" menu-class="custom-css-class">
+                <a href="/expertprofile/{{pendingUser.encodedEmail}}" ng-model="newprofile" onclick="window.location.reload();">
+                    <img class="blinkingIcon"/>
+                </a>
+            </span>
+        </p>
+    </center> 
+
+
+    <input type="hidden"  ng-model="country.expPageMetroCode" />
+    <!-- <p class="visualmap">HERE WILL BE THE VISUAL MAP OF EXPERT CONNECTIONS</p> -->
+    <p class="visualmap">{{expertprofile.firstname}} do not have any connections yet</p>
+
+    <div class="visualmap1">
+        <label class="names">{{expertprofile.title}} {{expertprofile.firstname}} {{expertprofile.lastname}}</label>
+        <p class="degreename">{{expertprofile.degreelist}}</p>
+        <div class="parallax">
+            <img class="profilepic" ng-src="https://storage.googleapis.com/bobo-0518/{{expertprofile.profileImageUploaded}}"/>
+            <p  class="metroareaname">{{expertprofile.metroCode}}, {{expertprofile.stateCode | uppercase}} {{expertprofile.countryCode | uppercase}}</p>
+        </div>
+        <br /> <br /><br />
+        <form name="eepRecognition" ng-submit="expertprofile.submitRecognitionEndorsement();" >
+        <h2 class="visualmap2"> Global Personal Recognition In:</h2><br /><br />
+        <table>  
+            <tr>
+                <th><input ng-show="showEndorsementProfile" type="radio" name="globalRadio" id='creativeRadio' data-ng-value="true"  ng-model="expertprofile.creativeRadio" ng-click="expertprofile.selectRecognition('creativeRadio');" /> Creativity</th>
+                <th><input ng-show="showEndorsementProfile" type="radio" name="globalRadio" id='productiveRadio' data-ng-value="true"  ng-model="expertprofile.productiveRadio" ng-click="expertprofile.selectRecognition('productiveRadio');" /> Proactivity</th>
+                <th><input ng-show="showEndorsementProfile" type="radio" name="globalRadio" id='reliabilityRadio' data-ng-value="true"  ng-model="expertprofile.reliabilityRadio" ng-click="expertprofile.selectRecognition('reliabilityRadio');" /> Reliability</th>
+                <th><input ng-show="showEndorsementProfile" type="radio" name="globalRadio" id='managabilityRadio' data-ng-value="true"  ng-model="expertprofile.managabilityRadio" ng-click="expertprofile.selectRecognition('managabilityRadio');" /> Managability</th>
+            </tr>
+            <tr>
+                <td>
+                    <select ng-show="showEndorsementProfile" id='creativityRate' ng-model="expertprofile.creativityRate" disabled=true style="width: 100px">
+                        <option value="">None</option> 
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <div ng-show="showEndorsementProfile==false">No Endorsement yet</div>
+                </td>
+                <td>
+                    <select ng-show="showEndorsementProfile" id='proactivityRate' ng-model="expertprofile.proactivityRate" disabled=true style="width: 100px">
+                        <option value="">None</option> 
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>                        
+                    </select>
+                    <div ng-show="showEndorsementProfile==false">No Endorsement yet</div>
+                </td>
+                <td>
+                    <select ng-show="showEndorsementProfile" id='reliabilityRate' ng-model="expertprofile.reliabilityRate" disabled=true style="width: 100px">
+                        <option value="">None</option> 
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <div ng-show="showEndorsementProfile==false">No Endorsement yet</div>
+                </td>
+                <td>
+                    <select ng-show="showEndorsementProfile" id='managabilityRate' ng-model="expertprofile.managabilityRate" disabled=true style="width: 100px">
+                        <option value="">None</option> 
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <div ng-show="showEndorsementProfile==false">No Endorsement yet</div>
+                </td>
+            </tr>
+            <tr>
+                <th> 
+                    <!-- <img class="icon2" ng-src="assets/image/square-rounded-256.png">&nbsp;&nbsp;
+                    <img class="icon2" ng-src="assets/image/square-rounded-256.png"> -->
+                    <div ng-show="showEndorsementProfile==false">Rating not available yet [0]</div>
+                </th>
+                <th> 
+                    <!-- <img class="icon2" ng-src="assets/image/square-rounded-256.png">&nbsp;&nbsp;
+                    <img class="icon2" ng-src="assets/image/square-rounded-256.png"> -->
+                    <div ng-show="showEndorsementProfile==false">Rating not available yet [0]</div>
+                </th>
+                <th> 
+                    <!-- <img class="icon2" ng-src="assets/image/square-rounded-256.png">&nbsp;&nbsp;
+                    <img class="icon2" ng-src="assets/image/square-rounded-256.png"> -->
+                    <div ng-show="showEndorsementProfile==false">Rating not available yet [0]</div>
+                </th>
+                <th> 
+                    <!-- <img class="icon2" ng-src="assets/image/square-rounded-256.png">&nbsp;&nbsp;
+                    <img class="icon2" ng-src="assets/image/square-rounded-256.png"> -->
+                    <div ng-show="showEndorsementProfile==false">Rating not available yet [0]</div>
+                </th>  
+            </tr>
+        </table>
+        <input ng-show="showEndorsementProfile" name="expert_recognition_save" type="submit" value="Save and Continue Endorsement" style="width: 295px" />
+        <br />
+        <div class="row show-hide-message" ng-show="expertprofile.recognitionSuccessMsg">
+            <div class="alert alert-success">{{expertprofile.recognitionSuccessMsg}}</div>
+        </div>
+        <div class="row show-hide-message" ng-show="expertprofile.recognitionErrorMsg">
+            <div class="alert alert-danger">{{expertprofile.recognitionErrorMsg}}</div>
+        </div>
+        </form>
+        <!-- <div class="parallax2"></div>  -->
+        <form name="eepEmpSection" ng-submit="expertprofile.submitExpertiseEndorsement();" >
+            <h2 class="knowledgesection"> Expertise and Knowledge Section</h2>
+            <h2>Available</h2>
+            <input type="radio" name="radio" id='radio-btn' data-ng-value="true"   ng-model="expertprofile.nooptionselected"/> None <br />
+            <input type="checkbox" name="option1" value="Work by Contract" ng-disabled="true" ng-model="expertprofile.contractwork" /> Work by Contract<br/>
+            <input type="checkbox" name="option2" value="Work Part Time" ng-disabled="true" ng-model="expertprofile.parttimework"/> Work Part Time<br/>
+            <input type="checkbox" name="option3" value="Work Full Time" ng-disabled="true" ng-model="expertprofile.fulltimework"/> Work Full Time<br/>
+            <input type="checkbox" name="option3" value="Offering Service" ng-disabled="true" ng-model="expertprofile.servicework"/> Offering Service<br/>
+            <input type="checkbox" name="option4" value="Consulting" ng-disabled="true" ng-model="expertprofile.consultingwork"/> Consulting<br/>
+            <input type="checkbox" name="option5" value="Pro-Bono" ng-disabled="true" ng-model="expertprofile.probonowork"/> Pro-Bono<br/>
+            <br />
+            
+            <!-- <label><strong>  Main idea==></strong></label><br /><br /> -->
+            <div class="row show-hide-message" ng-show="expertprofile.endorsementSuccessMsg">
+				<div class="alert alert-success">{{expertprofile.endorsementSuccessMsg}}</div>
+			</div>
+			<div class="row show-hide-message" ng-show="expertprofile.endorsementErrorMsg">
+				<div class="alert alert-danger">{{expertprofile.endorsementErrorMsg}}</div>
+            </div>
+            <div ng-repeat="expertOption in expertprofile.expertise track by $index" >
+                <div ng-show="expertOption.exphidefrompublic">
+                        Expertise information is private
+               </div>
+               <br />
+                <div ng-show="expertOption.exphidefrompublic==false">
+                    <div>
+                        <strong>   {{expertOption.expmainidea}}</strong> ==> {{expertOption.Text}}
+                    </div>
+                    <!-- 
+                        Empty Star =  &#9734;
+                        Fill Star = &#9733;
+                    -->
+                    <!-- <br /> -->
+                    <!-- <span class="starrating" ng-repeat="t in temp[expertOption.exprateskill] track by $index" >&#9733; &nbsp;</span> -->
+                    <div>
+                        <span class="starrating" ng-repeat="t in expertprofile.getTimes(expertOption.exprateskill) track by $index">&#9733; &nbsp;</span>
+                        <span class="starrating" ng-repeat="t in expertprofile.getRemainingTimes(expertOption.exprateskill) track by $index">&#9734;&nbsp;</span>
+                    </div>
+                    <div><strong>Ratings: [0]</strong></div>
+                    <div><strong>Comments: [0]</strong></div>
+                
+                <!-- <span ng-repeat="rating in ratings">
+                    {{rating.current}} out of
+                    {{rating.max}}
+                    <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                </span> -->
+                <div ng-show="showEndorsementProfile">
+                    <input type="radio" name="expRadio" ng-model="expertOption.expRadio" ng-value="true" ng-click="expertprofile.selectMainIdea(expertprofile.expertise, $index);" />
+                    <input type="hidden" ng-model="expertprofile.expId" />
+                    <div ng-show="expertOption.expRadio" >
+                        <label> Please rate your skills</label><br />
+                        <select ng-model="expertprofile.rateskill" ng-change="expertprofile.selectRateSkill(expertprofile.expertise, $index)" style="width: 70px">                    
+                            <option value="">None</option> 
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select><br/><br/>                
+                    </div>
+                    <!-- <div ng-show="expertOption.rateskill" > -->
+                    <div  ng-show="expertOption.comment" >
+                        <label>Write Comments to support your rating (optional)</label><br />
+                        <Textarea name="TextField" ng-model="expertprofile.expertcomment" ng-trim="false" rows=5 cols=50> </textarea>
+                        <br/><br/>
+                        <input name="expert_endorsement_save" type="submit" value="Save and Continue Endorsement" style="width: 295px" />&nbsp;&nbsp;&nbsp;
+                        <input name="expert_endorsement_saveView" type="button" value="Save and go to Expert Profile Page" ng-click="expertprofile.saveEndorsementViewExpert(); expertprofile.selectMainIdea(expertprofile.expertise, -1);" style="width: 295px" />&nbsp;&nbsp;&nbsp;
+                        <br/><br/>
+                        <input name="expert_endorsement_cancel" type="button" value="Cancel Endorsement" ng-click="expertprofile.selectMainIdea(expertprofile.expertise, -1);" style="width: 295px" />&nbsp;&nbsp;&nbsp;
+                        <input name="expert_submit_save" type="submit" value="Add me to RVM" style="width: 295px" />&nbsp;&nbsp;&nbsp;
+                        <br/><br/>
+                        <input name="expert_submit_save" type="submit" value="Add {{expertprofile.firstname}} to Myself" style="width: 295px" />&nbsp;&nbsp;&nbsp;
+                        <br/><br/>
+                    </div>
+                </div>  
+                
+                <!-- <div class="starrating" ng-repeat="t in expertprofile.getTimes(10) track by $index" >&#9734;&nbsp;</div> -->
+                <!-- <div class="verticalLine">&nbsp;</div> -->
+                <!-- //Start Ratting 
+                <span ng-repeat="rating in ratings">{{rating.current}} out of
+                    {{rating.max}}
+                    <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                </span>
+                -->
+                <div>
+                    <input type="hidden" ng-model="expertprofile.expertiseSource" />
+                     <div ng-repeat="expertCompanyOption in expertOption.selectedExpertCompanies track by $index" > 
+                        <img ng-src="https://storage.googleapis.com/bobo-0518/Logos_Sample_20000-1/{{expertCompanyOption.logo}}" height="20" width="40" alt="New Company"/>&nbsp;
+                        {{expertCompanyOption.display}},&nbsp;
+                        {{expertCompanyOption.country}}
+                        <!-- {{expertprofile.printCompany(expertOption.selectedExpertiseSource)}}   -->
+                        <!-- {{expertOption.selectedExpertiseSource}}  -->
+                     </div>
+                </div>
+
+                <!-- <div ng-if="printCompany(expertOption.expertiseid)">
+                    
+                </div> -->
+            </div>
+            <!-- <br /> -->
+            </div>            
+            <div ng-show="expertprofile.expertise==false">
+                <center><h4> Expertise not available yet </h4></center>
+            </div>
+            <!-- <div ng-repeat="expertCompanyOption in expertprofile.expertiescompany track by $index" >
+                {{expertCompanyOption}}
+            </div>  -->
+        </form>
+        <div class="parallax2"></div> 
+        <form name="expertEmployment" ng-submit="expertprofile.submitEmploymentEndorsement();" >
+            <h2 class="employmentEducation"> Employment Information: </h2>
+            <div ng-show="expertprofile.employmentMsg">
+                    <center><h4> {{expertprofile.employmentMsg}} </h4></center>
+            </div>
+            <div ng-repeat="employmentOption in expertprofile.employments track by $index" >
+                <div ng-show="employmentOption.emphideinfo">
+                        Employment information is private
+                </div>
+                <div ng-show="employmentOption.emphideinfo==false">
+                    <!-- <div><strong>Entity:</strong> {{employmentOption.searchText}} </div> -->
+                    <div>
+                        <strong>Entity:</strong>  
+                        <img ng-src="https://storage.googleapis.com/bobo-0518/Logos_Sample_20000-1/{{employmentOption.empcompany.logo}}" height="20" width="40" alt="New Company"/>&nbsp;
+                        {{employmentOption.empcompany.display}},&nbsp;
+                        {{employmentOption.empcompany.country}}
+                    </div>
+                    <div><strong>General Title:</strong> {{employmentOption.emptitlecategory}}</div>
+                    <div ng-show="employmentOption.emppresent">
+                        <div><strong>Duration:</strong> Since {{employmentOption.empstartyear}}</div>
+                        <div ng-show="employmentOption.empexacttitle">
+                            <div><strong>Exact Title:</strong> {{employmentOption.empexacttitle}}</div>
+                        </div>
+                    </div>
+                    <div ng-show="employmentOption.emppresent==false">
+                            <div><strong>Duration:</strong> {{employmentOption.empstartyear}}-{{employmentOption.empendyear}}</div>
+                    </div>
+                    <!-- <div> 
+                            <img ng-src="https://storage.googleapis.com/bobo-0518/Logos_Sample_20000-1/{{employmentOption.empcompany.logo}}" height="20" width="40" alt="New Company"/>&nbsp;
+                            {{employmentOption.empcompany.display}},&nbsp;
+                            {{employmentOption.empcompany.country}}
+                    </div> -->
+                </div>
+                <br/>
+            </div>
+        </form>
+        <div class="parallax2"></div>
+        <form name="expertEducation" ng-submit="expertprofile.submitEducationEndorsement();">
+            <h2 class="employmentEducation"> Education: </h2>
+            <div ng-show="expertprofile.educationMsg">
+                    <center><h4> {{expertprofile.educationMsg}} </h4></center>
+            </div>
+            <div ng-repeat="educationOption in expertprofile.educations track by $index">
+                <!-- <div><strong>Learning Institution:</strong> {{educationOption.searchText}} </div> -->
+                <div>
+                    <strong>Learning Institution:</strong> 
+                    <img ng-src="https://storage.googleapis.com/bobo-0518/Logos_Sample_20000-1/{{educationOption.educompany.logo}}" height="20" width="40" alt="New Company"/>&nbsp;
+                    {{educationOption.educompany.display}},&nbsp;
+                    {{educationOption.educompany.country}}
+                </div>
+                <div><strong>Degree:</strong> {{educationOption.edudegree}}</div>
+                <div><strong>Major:</strong> {{educationOption.edumajor}}</div>
+                <div ng-show="educationOption.edupresent">
+                        <div><strong>Expected Graduation Year:</strong> {{educationOption.edugradyearexpected}}</div>
+                </div>
+                <div ng-show="educationOption.edupresent==false">
+                    <div><strong>Graduation Year:</strong> {{educationOption.edugradyear}}</div>
+                </div>
+                <br/>
+            </div>
+        </form>
+        <div class="parallax2"></div>
+        <h2 class="knowledgesection"> My Interests and Hobbies</h2>
+        <div ng-show="expertprofile.hobbyMsg">
+                <center><h4> Hobby not available yet </h4></center>
+        </div>
+        <table ng-show="expertprofile.maxHobbyLength">  
+            <tr>
+                <th>General Indoors</th>
+                <th>General Outdoor</th>
+                <th>Collection Indoors</th>
+                <th>Collection Outdoor</th>
+                <th>Competition Indoors</th>
+                <th>Competition Outdoor</th>
+                <th>Observation Indoors</th>
+                <th>Observation Outdoor</th>
+            </tr>
+             <tr ng-repeat="x in expertprofile.getMaxTimes(expertprofile.maxHobbyLength) track by $index"> 
+            <!-- <tr> -->
+                <!-- <td ng-if="expertprofile.hobgeneralindoor">{{printSelectedGeneralIndoorHobbies()}}</td>  -->
+                <td>{{hobgeneralindoor[$index]}}</td>
+                <td>{{hobgeneraloutdoor[$index]}}</td>
+                <td>{{hobcollectionindoor[$index]}}</td>
+                <td>{{hobcollectionoutdoor[$index]}}</td>
+                <td>{{hobcompetitionindoor[$index]}}</td> 
+                <td>{{hobcompetitionoutdoor[$index]}}</td>
+                <td>{{hobobservationindoor[$index]}}</td>
+                <td>{{hobobservationoutdoor[$index]}}</td>                 
+            </tr>  
+        </table>
+        <div class="parallax2"></div>
+        <br /><br /><br/ ><br />
+        <h2 class="knowledgesection" style="color:maroon;font-size:20px;">HERE WILL BE THE RELATIONSHIP VISUAL MAPOF MOST OF THE PEOPLE WHO ARE WORKING FOR EXPERT'S CURRENT COMPANY</h2><br /><br />
+        <div class="parallax2"></div>
+        <p class="knowledgesection" style="color:maroon">HERE WILL BE THE RELATIONSHIP VISUAL MAPOF SOME OF THE PEOPLE WHO WERE WORKING FOR EXPERT'S MOST RECENT COMPANY</p><br /><br />
+    </div>
+<!-- </div> -->
+        <!-- <span class="abc">This is table</span> -->
+    <!-- <h2 class= "visualmap2"> Global Personal Recognition In:</label> -->
+        <!-- <h2 class= "visualmap2"> Global Personal Recognition In:</label><br /><br /> -->
+ 
+<!-- <div class="contains"><br /><br /><br /><br /> -->
+   
+
+<!-- <p>This example creates a full page background image. Try to resize the browser window to see how it always will cover the full screen (when scrolled to top), and that it scales nicely on all screen sizes.</p> -->
+
+</body>
+</html>

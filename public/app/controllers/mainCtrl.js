@@ -1,35 +1,48 @@
 angular.module('mainController',['authServices'])
 
 // Controller: mainCtrl is used to handle login and main index functions (stuff that should run on every page)	
-.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope){
+.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope,$interval){
     var app = this;
-app.loadme = false;// Hide main HTML until data is obtained in AngularJS
+    app.loadme = false;// Hide main HTML until data is obtained in AngularJS
 
+    // app.checkSession = function(){
+    //     if(Auth.isLoggedIn()){
+    //         app.checkingSession = true;
+    //         var interval = $interval(function(){
+    //             console.log('test');
+    //         }, 2000);
+    //     }
+    // };
+    // app.checkSession();
 // Will run code every time a route changes
-$rootScope.$on('$routeChangeStart', function(){
-    // Check if user is logged in
-    if(Auth.isLoggedIn()){
-    app.isLoggedIn = true;// Variable to activate ng-show on index
-    // Custom function to retrieve user data
-    Auth.getUser().then(function(data){
-        console.log(data.data.fullname);
-        app.firstname = data.data.firstname;
-        app.lastname = data.data.lastname;
-        //app.fullname = data.data.fullname;
-        app.email = data.data.email;
-        app.loadme = true;// Show main HTML now that data is obtained in AngularJS
+    $rootScope.$on('$routeChangeStart', function () {
+        // if(!app.checkSession) {
+        //     app.checkSession();
+        // }
+        // Check if user is logged in
+        if (Auth.isLoggedIn()) {
+            app.isLoggedIn = true;// Variable to activate ng-show on index
+            // Custom function to retrieve user data
+            Auth.getUser().then(function (data) {
+                //console.log(data.data);
+                app.firstname = data.data.firstname;
+                app.lastname = data.data.lastname;
+                //app.fullname = data.data.fullname;
+                app.email = data.data.email;
+                app.encodedEmail = btoa(app.email); //+'&'+'apoorva.jotangia@gmail.com';
+                app.loadme = true;// Show main HTML now that data is obtained in AngularJS
+            });
+
+        } else {
+            app.isLoggedIn = false;// User is not logged in, set variable to false
+            app.firstname = '';
+            app.lastname = '';
+            // app.fullname = ''; // Clear name
+            app.loadme = true;  // Show main HTML now that data is obtained in AngularJS
+        }
+
+
     });
-        
-}else{
-    app.isLoggedIn = false;// User is not logged in, set variable to falses
-    app.firstname = '';
-    app.lastname = '';
-   // app.fullname = ''; // Clear name
-    app.loadme = true;  // Show main HTML now that data is obtained in AngularJS
-	}
-
-
-});
 
     this.doLogin = function(loginData){
         app.errorMsg = false;
@@ -40,12 +53,14 @@ $rootScope.$on('$routeChangeStart', function(){
             // Check if login was successful 
           if(data.data.success){
                 //Create Success Message
-                app.successMsg = data.data.message;                
+                app.successMsg = data.data.message;  
+                //TODO: Get data from Profile. If Profile data is empty then redirect to eep.html else expertprofile              
                 $timeout(function(){
-                 $location.path('/expertprofile');
+                 $location.path('/eep');
                  app.loginData ='';
                  app.successMsg = false; 
-             },2000);
+                 app.disabled= false;// Enable form on submission
+             },1000);
                 
         }else{
              
@@ -69,7 +84,22 @@ $rootScope.$on('$routeChangeStart', function(){
             $location.path('/');
         }, 1000); 
     };
+
+    //  this.profileUser = function() {
+    //         console.log('form submitted');
+    //         console.log(this.headerData);            
+    //     };
 });
+
+// .controller('countryCtrl', ['$scope','$http', function($scope,$http) {
+//         $scope.countryList= [];
+//         $http.get("country.json").then(function(data){                        
+//             $scope.countryList  = data;
+//         })        
+
+//     }]
+
+// );
 
 
 

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Log In</title>
+       <link rel="stylesheet" type="text/css" href="project-suli/style.css"/>
+    </head>
+    <body>
+        <div class="page-header"></div>    
+        <!--<div class="image"> <img src="intellectspace-logo.png" alt="logo" class="logo"></div>-->
+        <div class="container">
+            <form ng-submit="main.doLogin(loginData);">
+                <h4>Please Enter your company details</h4>
+                <p>Company Name</p>
+                <div class="form-input">
+                    <input  placeholder="Type company name..." type="text" name="companyname" >
+                </div><br>
+                <p>Your company URL </p>
+                <div class="form-input">
+                    <input type="url"  name = "url"> 
+                </div><br>
+                <input type="submit" ng-disabled="main.disabled" name = "submit" value="Add company" class="btn-login"/>
+                <br><br>
+           </form><br>
+            <div class="row show-hide-message" ng-show="main.successMsg">
+             <div class="alert alert-success">{{main.successMsg}}</div>
+             </div>
+            <br>
+            <div class="row show-hide-message" ng-show="main.errorMsg">
+                <div class="alert alert-danger">{{main.errorMsg}}&nbsp</div>
+            </div>
+        </div>
+    </body>
+ </html>

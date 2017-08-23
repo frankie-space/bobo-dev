@@ -1,0 +1,89 @@
+<!DOCTYPE html >
+
+<head>
+    <title>edit-expert-profile</title>
+    <style>
+        .containing {
+    margin-top: 40px;
+}
+.m1{
+   border: 1px solid black;
+}
+.mb{
+   border: 1px solid black;
+  padding: 22px;
+}
+</style>
+</head>
+<body>
+<div class="page-header"></div><br />
+<!-- <div class="container" > -->
+<!-- <table class="table table-bordered table-condensed">
+        <tbody>
+            <tr ng-repeat="email in emails" ng-click="showPopup(email)">
+                <td>{{ email.from }}</td>
+                <td>{{ email.subject }}</td>
+                <td>{{ email.date }}</td>
+            </tr>
+        </tbody>
+    </table> -->
+     <!-- <a href="/communicationconsolewithemail" ng-click="showComposePopup()">Open console</a> -->
+     <button class="btn btn-primary" ng-click="showComposePopup()">Compose</button>
+     <br/>
+    <div class="row show-hide-message" ng-show="compose.emailSuccessMsg">
+        <div class="alert alert-success">{{compose.emailSuccessMsg}}</div>
+    </div>
+    <div class="row show-hide-message" ng-show="compose.emailErrorMsg">
+        <div class="alert alert-danger">{{compose.emailErrorMsg}}</div>
+    </div>
+    <!--changed div class from modal to m and then it started working-->
+    <div class="m1" ng-show="isPopupVisible">
+        <div class="mh">
+            <button type="button" class="close" data-dismiss="m" aria-hidden="true" ng-click="closePopup()">&times;</button>
+            <h3>{{selectedEmail.subject}}</h3>
+        </div>
+        <div class="mb">
+            <strong>From:</strong> {{selectedEmail.from}}<br />
+            <strong>Date:</strong> {{selectedEmail.date}}<br />
+            <br />
+            {{selectedEmail.body}}
+        </div>
+        <div class="mf">
+            <a href="#" class="btn btn-primary" ng-click="closePopup()">Close</a>
+        </div>
+    </div>
+    
+    <div class="m" ng-show="isComposePopupVisible" >
+        <div class="mh">
+            <button type="button" class="close" ng-click="closeComposePopup()">&times;</button>
+            <h3>Compose Email</h3>
+        </div>
+        <div class="mb"><br /><br />
+            <form name="compose">
+                <div ng-class="{ 'has-success':(compose.toemail.$valid && !compose.toemail.$pristine ), 'has-error':(!compose.toemail.$valid && !compose.toemail.$pristine)|| (!compose.toemail.$valid && compose.$submitted) }">
+                <input type="text" placeholder="To" style="width:95%;"
+                    ng-model="composeEmail.toemail" ng-pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" name="toemail" required><br /><br />
+                    <p class="help-block" ng-show="(!compose.toemail.$pristine && compose.toemail.$error.required)||(compose.$submitted && compose.toemail.$error.required)">This field is required</p>
+                    <!-- <p class="help-block" ng-show="!regForm.toemail.$error.required && regForm.toemail.$valid">{{register.emailMsg}}</p> -->
+                <ul ng-show="(!compose.toemail.$pristine && compose.toemail.$error.pattern)||(!compose.toemail.$pristine && compose.toemail.$error.minlength)||(!compose.toemail.$pristine && compose.toemail.$error.maxlength)" class="help-block">
+                   <li> Must contain "@"</li>
+                   <li>Must not contain any special characters</li>
+                   <li>Must be at least 3 characters but not more than 40</li>
+                </ul>
+                <input type="text" style="width:95%;"
+                    ng-model="composeEmail.subject"  readonly><br /><br />
+                <textarea style="width:95%;" rows="10" 
+                    ng-model="composeEmail.emailbody"  ></textarea>
+                </div>
+            </form>
+            <br /><br />
+        </div><br /><br />
+        <div class="mf">
+            <a href="#" class="btn"ng-click="closeComposePopup()">Close</a>
+            <a href="#" class="btn btn-primary" ng-click="composeemail.sendEmail()">Send</a>
+        </div>
+    <!-- </div> -->
+</div>
+
+</body>
+</html>
